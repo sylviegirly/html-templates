@@ -1,0 +1,930 @@
+/* -------------------------------------------------------- */
+/* VARIABLES */
+/* -------------------------------------------------------- */
+:root {
+    --website-size: 900px;
+    --border-radius: 5px;
+    --padding: 12px;
+    --gap: 10px;
+    --focus-color: #f64e00;
+    --marquee-duration: 30s;
+
+    --header-img: url(https://placehold.co/1920x1080);
+    --header-align: center;
+    --header-height: 300px;
+
+    --title-font: "Geo";
+    --title-color: white;
+
+    --header-font: "Geo";
+    --header-color: #500b0b;
+
+    --bold: #4d1414;
+    --italics: #64291e;
+    --blockquote: #e5d8be;
+    --accent: #4d1414;
+    --font-on-accent: #fff;
+
+    --background: #e5d8be;
+    --background-deco: #dbc79f;
+    --body-font: "Nunito";
+    --font-color: #1f1c1c;
+
+    --links: #672c0d;
+    --links-hover: #000000;
+
+    --borders: #361a1a;
+    --body-bg: #f7efdf;
+
+    --nav-bg: #64341e;
+    --nav-bg-hover: #c89772;
+    --nav-borders: #3a0b0b;
+    --nav-text: white;
+    --nav-text-hover: black;
+
+    --footer-bg: #280f0f;
+    --footer-text: white;
+    --footer-link: orange;
+
+    @media (prefers-color-scheme: dark) {
+        --header-img: url(https://placehold.co/1920x1080);
+        --header-align: top;
+        --title-color: #330909;
+
+        --header-color: #e29b26;
+
+        --bold: #e0a020;
+        --italics: #f4da9e;
+        --blockquote: #2e2d2a;
+        --accent: #e8cc68;
+        --font-on-accent: #fff;
+
+        --background: #2c2a25;
+        --background-deco: rgba(219, 199, 159, 0.16);
+        --font-color: #eddfdf;
+
+        --links: #f69827;
+        --links-hover: #ffffff;
+
+        --borders: #c97b50;
+        --body-bg: #23211b;
+
+        --nav-bg: #ce9073;
+        --nav-bg-hover: #522c0f;
+        --nav-borders: #b74b21;
+        --nav-text: #000000;
+        --nav-text-hover: #ffffff;
+
+        --footer-bg: #dfab6c;
+        --footer-text: #000000;
+        --footer-link: #361e0e;
+    }
+}
+
+@font-face {
+    font-family: "Nunito";
+    font-display: swap;
+    src: url(../fonts/Nunito-VariableFont_wght.ttf);
+}
+
+@font-face {
+    font-family: "Geo";
+    font-display: swap;
+    src: url(../fonts/Geo-Regular.ttf);
+}
+
+/* -------------------------------------------------------- */
+/* SCROLLBAR STYLING */
+/* -------------------------------------------------s------- */
+/* Firefox */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: var(--borders) transparent;
+}
+
+/* Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+    width: 5px;
+}
+
+*::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: transparent;
+    border-radius: 10px;
+    border: 3px double var(--borders);
+}
+
+::selection {
+    color: #fff;
+    background: var(--borders);
+}
+
+/* -------------------------------------------------------- */
+/* BASICS */
+/* -------------------------------------------------------- */
+
+body {
+    font-family: var(--body-font);
+    background-color: var(--background);
+    background-image: linear-gradient(var(--background-deco) 1px, transparent 1px),
+        linear-gradient(to right, var(--background-deco) 1px, var(--background) 1px);
+    background-size: 20px 20px;
+    background-attachment: fixed;
+    color: var(--font-color);
+    font-size: 1em;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+
+    &:focus-visible {
+        outline-color: var(--focus-color) !important;
+        outline-offset: -1px !important;
+        outline-style: dotted !important;
+        outline-width: 2px !important;
+        border-color: transparent;
+    }
+}
+
+html {
+    position: relative;
+}
+
+html,
+body {
+    padding: 0;
+    margin: 0;
+}
+
+a {
+    color: var(--links);
+    text-decoration: underline;
+    transition: 0.25s;
+    line-height: 1rem;
+
+    &:hover {
+        color: var(--links-hover);
+        text-decoration: none;
+    }
+}
+
+/* only add external links to paragraphs, blockquotes, and lists */
+main p a[href^="http"]:after,
+main blockquote a[href^="http"]:after,
+main li a[href^="http"]:after {
+    display: inline-block;
+    content: "↗";
+    margin-left: 1px;
+}
+
+/* -------------------------------------------------------- */
+/* HEADER + NAVIGATION */
+/* -------------------------------------------------------- */
+header {
+    border-bottom: 3px dotted var(--borders);
+}
+
+#headerdeco {
+    display: flex;
+    align-items: flex-end;
+    justify-content: end;
+    background-image: var(--header-img);
+    height: var(--header-height);
+    background-repeat: no-repeat;
+    background-position: var(--header-align);
+    background-size: cover;
+    width: 100%;
+    border-radius: var(--border-radius);
+    border: 3px solid var(--borders);
+    box-shadow: 2px 2px 0 var(--borders);
+}
+
+#headerdeco p {
+    font-size: 3em;
+    font-family: var(--title-font);
+    color: var(--title-color);
+    padding: 5px 10px;
+    font-weight: bold;
+    text-shadow:
+        4px 4px var(--accent),
+        -1px -1px var(--accent),
+        1px 1px var(--accent),
+        -1px 1px var(--accent),
+        1px -1px var(--accent);
+}
+
+#headerdeco p a {
+    color: inherit;
+    text-decoration: none;
+}
+
+#headerdeco p a:hover {
+    letter-spacing: 2px;
+}
+
+header summary {
+    display: none;
+}
+
+nav {
+    display: flex;
+    flex-wrap: wrap;
+    position: sticky;
+    top: 0;
+    justify-content: space-between;
+    width: 100%;
+    align-content: center;
+    gap: 10px;
+    padding: var(--padding) 0;
+}
+
+nav a {
+    text-align: center;
+    color: var(--nav-text);
+    background-color: var(--nav-bg);
+    flex: 1 0 21%;
+    width: auto;
+    border-radius: var(--border-radius);
+    border: 3px solid var(--nav-borders);
+    padding: 5px 0;
+    text-decoration: none;
+    box-shadow: 2px 2px 0 var(--nav-borders);
+
+    &:hover {
+        background-color: var(--nav-bg-hover);
+        color: var(--nav-text-hover);
+    }
+}
+
+/* -------------------------------------------------------- */
+/* MAIN CONTENT */
+/* -------------------------------------------------------- */
+.container {
+    max-width: var(--website-size);
+    margin: 10px auto;
+}
+
+main {
+    display: flex;
+    flex-wrap: wrap;
+    margin: auto;
+    gap: var(--gap);
+    padding: var(--padding) 0;
+}
+
+main p {
+    line-height: 1.4em;
+    padding-bottom: 5px;
+    padding: 5px 0;
+}
+
+main p:first-child {
+    padding-top: 0;
+}
+
+main p:last-child {
+    padding-bottom: 0;
+}
+
+main .box {
+    position: relative;
+    background-color: var(--body-bg);
+    border: 3px solid var(--borders);
+    outline: 1px dotted var(--borders);
+    outline-offset: -5px;
+    padding: var(--padding);
+    border-radius: var(--border-radius);
+    box-shadow: 2px 2px 0 var(--borders);
+    max-width: var(--website-size);
+}
+
+/* only for boxes within boxes */
+main div .box {
+    margin-bottom: 10px;
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+}
+
+/* -------------------------------------------------------- */
+/* STYLING */
+/* -------------------------------------------------------- */
+h1 {
+    font:
+        1.8em var(--header-font),
+        sans-serif;
+    border-bottom: 2px dotted var(--accent);
+    color: var(--header-color);
+}
+
+h2 {
+    font:
+        1.6em var(--header-font),
+        sans-serif;
+    border-bottom: 2px dotted var(--accent);
+    margin: 5px 0 5px 0;
+    color: var(--header-color);
+}
+
+h3 {
+    font:
+        1.4em var(--header-font),
+        sans-serif;
+    color: var(--header-color);
+}
+
+h4 {
+    font:
+        1.3em var(--header-font),
+        sans-serif;
+    color: var(--header-color);
+}
+
+h5 {
+    font:
+        1.2em var(--header-font),
+        sans-serif;
+    color: var(--header-color);
+}
+
+h6 {
+    font:
+        1.1em var(--header-font),
+        sans-serif;
+    color: var(--header-color);
+}
+
+hr {
+    border: none;
+    border-top: 2px dotted var(--accent);
+}
+
+bold,
+strong,
+b {
+    color: var(--bold);
+}
+
+em,
+italics,
+i {
+    color: var(--italics);
+}
+
+abbr {
+    text-decoration: underline;
+    text-decoration-style: dotted;
+    text-decoration-color: var(--accent) !important;
+    cursor: pointer;
+}
+
+underline,
+u {
+    text-decoration: underline;
+    text-decoration-style: double;
+    text-decoration-thickness: 1px;
+    text-decoration-color: var(--accent);
+}
+
+s,
+del {
+    text-decoration: line-through;
+    opacity: 0.8;
+}
+
+mark {
+    /* Text highlighted by using the <mark> element */
+    text-shadow: 1px 1px 4px var(--blockquote);
+    background-color: inherit;
+    color: inherit;
+}
+
+main .image,
+main .full-width-image,
+main .two-columns {
+    margin: 0.75em 0;
+}
+
+blockquote {
+    background: var(--blockquote);
+    padding: 10px;
+    margin: 1em 0.5em;
+    border-radius: 0 var(--border-radius) var(--border-radius) 0;
+    border-left: 3px solid var(--borders);
+}
+
+main summary {
+    background-color: var(--blockquote);
+    padding: 10px;
+    border-radius: var(--border-radius);
+    transition: 0.2s;
+}
+
+main summary:hover {
+    cursor: pointer;
+    background-color: var(--accent);
+    color: var(--font-on-accent);
+}
+
+main pre {
+    margin: 1em 0 1.5em;
+}
+
+main code {
+    text-transform: none;
+    background-color: var(--blockquote);
+    padding: 4px;
+    border-radius: var(--border-radius);
+}
+
+main center {
+    margin: 1em 0;
+    padding: 0 1em;
+}
+
+/* Scrolling Areas */
+
+.scrollable {
+    height: 200px;
+    background-color: var(--blockquote);
+    border-radius: var(--border-radius);
+    padding: var(--padding);
+    overflow: scroll;
+}
+
+.scrollable ul {
+    margin: 0;
+}
+
+/* Image Styling */
+
+img {
+    max-width: 100%;
+}
+
+.image {
+    display: block;
+    width: auto;
+    height: auto;
+    max-width: 100%;
+}
+
+.full-width-image {
+    display: block;
+    width: 100% !important;
+    height: auto;
+}
+
+.images {
+    display: flex;
+    width: calc(100% + 5px + 5px);
+    margin-left: -5px;
+    margin-right: -5px;
+}
+
+.images img {
+    width: 100%;
+    height: auto;
+    padding: 5px;
+    margin: 0;
+    overflow: hidden;
+}
+
+.image-deco {
+    background-color: var(--blockquote);
+    border: 3px solid var(--borders);
+    outline: 1px dotted var(--borders);
+    outline-offset: -5px;
+    border-radius: var(--border-radius);
+}
+
+/* Form elements */
+main input,
+textarea,
+select,
+option {
+    color: var(--text);
+    background: var(--blockquote);
+    font: 1rem var(--body-font);
+    border: 1px solid var(--borders);
+    padding: 5px;
+}
+
+main button {
+    color: var(--nav-text);
+    background: var(--nav-bg);
+    font: 1rem var(--body-font);
+    border: 3px solid var(--borders);
+    border-radius: var(--border-radius);
+    padding: 5px 10px;
+    transition: 0.2s;
+    margin: 0 5px;
+}
+
+main button:hover {
+    background: var(--nav-bg-hover);
+}
+
+/* Lists */
+main ul,
+main ol {
+    padding-left: 20px;
+    margin: 5px 0 5px 10px;
+}
+
+main li {
+    margin: 7px 0 7px 0;
+    line-height: 1.5;
+    /*list-style-image: url(../img/deco/star_bullet.gif);*/
+    /*this is just if you want to use an image instead*/
+}
+
+main li:last-child {
+    margin-bottom: 0;
+}
+
+main li:first-child {
+    margin-top: 0;
+}
+
+main li::marker {
+    color: var(--accent);
+}
+
+/* -------------------------------------------------------- */
+/* GALLERY */
+/* -------------------------------------------------------- */
+/* Wrapper */
+.image-gallery {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+    margin-left: 0;
+    margin-right: 0;
+    gap: 10px;
+}
+
+/* Items */
+.image-gallery div {
+    width: calc(20% - 10px);
+    box-sizing: border-box;
+    border: 3px solid var(--borders);
+    outline: 1px dotted var(--borders);
+    outline-offset: -5px;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+}
+
+/* Images */
+.image-gallery div img {
+    aspect-ratio: 1/1;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.25s ease-in-out;
+}
+
+.image-gallery div img:hover {
+    transform: scale(1.1);
+}
+
+/* -------------------------------------------------------- */
+/* CONTENT SIZE HELPERS VIA KALECHIPS */
+/* -------------------------------------------------------- */
+.full {
+    flex: 1 1 calc(100% - 2rem); /* for some reason it fixes the weird gap issues */
+}
+.half {
+    flex: 1 1 calc(50% - 2rem);
+}
+.third {
+    flex: 1 1 calc(33.33% - 2rem);
+}
+.twothird {
+    flex: 1 1 calc(66.66% - 2rem);
+}
+.quarter {
+    flex: 1 1 calc(25% - 2rem);
+}
+.threequarter {
+    flex: 1 1 calc(75% - 2rem);
+}
+
+/* ONLY FOR ITEMS THAT AREN'T FITTING */
+.fillheight {
+    height: 100%;
+}
+
+/* -------------------------------------------------------- */
+/* RIGHT TO LEFT MARQUEE */
+/* -------------------------------------------------------- */
+.marquee {
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.marquee div {
+    padding-left: 100%;
+    width: max-content;
+    animation: marquee var(--marquee-duration) linear infinite;
+    line-height: 1em;
+}
+
+.marquee div:hover {
+    animation-play-state: paused;
+}
+
+.marquee p {
+    display: inline;
+}
+
+@keyframes marquee {
+    0% {
+        transform: translate(0, 0);
+    }
+    100% {
+        transform: translate(-100%, 0);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .marquee div {
+        overflow: scroll;
+        padding-left: 0;
+        width: auto;
+        animation: none;
+    }
+}
+
+/* -------------------------------------------------------- */
+/* OTHER HELPER CLASSES */
+/* -------------------------------------------------------- */
+/* COLUMNS: */
+.two-columns {
+    display: flex;
+}
+
+.two-columns > * {
+    flex: 1 1 0;
+    margin: 0;
+}
+
+.two-columns > *:first-child {
+    padding-right: 0.75em;
+}
+
+.two-columns > *:last-child {
+    padding-left: 0.75em;
+}
+
+.hide-desktop {
+    display: none;
+}
+
+/* center any item */
+.center-item {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* align horizontal */
+    align-items: center; /* align vertical */
+}
+
+/* Shadow CSS Deco */
+.image-shadow {
+    filter: drop-shadow(3px 3px 0 var(--accent));
+}
+
+.float-img-right {
+    max-width: 40%;
+    float: right;
+    margin: 2px 0 2px 10px;
+}
+
+.float-img-left {
+    max-width: 40%;
+    float: left;
+    margin: 2px 10px 2px 0;
+}
+
+/* fix for floats! */
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+/* -------------------------------------------------------- */
+/* FOOTER */
+/* -------------------------------------------------------- */
+footer {
+    background-color: var(--footer-bg);
+    color: var(--footer-text);
+    text-align: center;
+    padding: var(--padding);
+    border-radius: var(--border-radius);
+    border: 3px solid var(--borders);
+    font-size: 0.8em;
+    box-shadow: 2px 2px 0 var(--borders);
+}
+
+footer a {
+    color: var(--footer-link);
+}
+
+/* -------------------------------------------------------- */
+/* SCROLL TO TOP */
+/* -------------------------------------------------------- */
+#backscroll {
+    display: none; /* Hidden by default */
+    position: fixed; /* Fixed/sticky position */
+    bottom: 13px; /* Place the button at the bottom of the page */
+    right: 10px; /* Place the button 30px from the right */
+    z-index: 99; /* Make sure it does not overlap */
+    border: 3px solid var(--nav-borders); /* Remove borders */
+    background-color: var(--nav-bg); /* Set a background color */
+    color: var(--nav-text); /* Text color */
+    cursor: pointer; /* Add a mouse pointer on hover */
+    padding: 10px 15px; /* Some padding */
+    border-radius: var(--border-radius); /* Rounded corners */
+    font-size: 1.1rem; /* Increase font size */
+    font-family: "Nunito";
+    transition: 0.5s;
+}
+
+#backscroll:hover {
+    color: var(--nav-text-hover);
+    background-color: var(--nav-bg-hover); /* Add a dark-grey background on hover */
+}
+
+/* -------------------------------------------------------- */
+/* ACCESSIBILITY, DO NOT REMOVE */
+/* -------------------------------------------------------- */
+#skip a {
+    position: absolute;
+    display: inline-block;
+    left: 0;
+    top: -1000px;
+    overflow: hidden;
+    transition: top 0.5s ease;
+    background: var(--background);
+    color: var(--link);
+    z-index: 1000;
+    padding: 5px;
+}
+
+#skip a:focus {
+    top: 0;
+    transition: top 0.5s ease;
+}
+
+/* -------------------------------------------------------- */
+/* CALENDAR FROM BECHNO KID, JS ISN'T INCLUDED */
+/* -------------------------------------------------------- */
+#widget-calendar table {
+    border: 1px solid var(--borders);
+    border-collapse: collapse;
+    font-size: 0.9em;
+    margin: 0 auto;
+}
+
+#widget-calendar td {
+    padding: 0 0.25rem;
+    border: 1px solid var(--borders);
+}
+
+#widget-calendar .month {
+    font-weight: bold;
+    text-align: center;
+    font-size: 1em;
+}
+
+#widget-calendar .days {
+    font-weight: bold;
+}
+
+#widget-calendar .today {
+    font-weight: bold;
+    color: var(--accent);
+    text-decoration: underline;
+    text-decoration-style: dotted;
+}
+
+#widget-calendar .blank {
+    background-color: var(--blockquote);
+}
+
+/* -------------------------------------------------------- */
+/* MOBILE RESPONSIVENESS */
+/* -------------------------------------------------------- */
+@media screen and (max-width: 800px) {
+    .container {
+        margin: 10px;
+    }
+
+    main .box {
+        max-width: 100%;
+    }
+
+    main {
+        display: block;
+    }
+
+    header summary {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 60px;
+        background-color: var(--nav-bg);
+        border-radius: var(--border-radius);
+        border: 3px solid var(--nav-borders);
+        color: var(--nav-text);
+        margin: 10px 0;
+        font-weight: bold;
+        box-shadow: 2px 2px 0 var(--nav-borders);
+    }
+
+    header summary::after {
+        content: " ▾";
+        margin-left: 10px;
+    }
+    header details[open] summary:after {
+        content: " ▴";
+    }
+
+    nav {
+        gap: 5px;
+        flex-wrap: wrap;
+        justify-content: center;
+        padding-top: 0;
+    }
+
+    nav a {
+        display: block;
+        flex: 1 0 49%;
+        margin: 0;
+    }
+
+    /* Items */
+    .image-gallery div {
+        width: calc(33% - 10px);
+    }
+
+    .hide-desktop {
+        display: block !important;
+    }
+
+    .hide-mobile {
+        display: none;
+    }
+
+    .full,
+    .half,
+    .third,
+    .twothird,
+    .quarter,
+    .threequarter {
+        margin: 10px 0 10px 0;
+    }
+
+    .full:last-child,
+    .half:last-child,
+    .third:last-child,
+    .twothird:last-child,
+    .quarter:last-child,
+    .threequarter:last-child {
+        margin-bottom: 0;
+    }
+
+    .full:first-child,
+    .half:first-child,
+    .third:first-child,
+    .twothird:first-child,
+    .quarter:first-child,
+    .threequarter:last-child {
+        margin-top: 0;
+    }
+
+    .float-img-right {
+        float: none;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 75%;
+    }
+
+    .float-img-left {
+        float: none;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 75%;
+    }
+}

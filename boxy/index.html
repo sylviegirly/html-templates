@@ -1,0 +1,270 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <!-- Setting character encoding and viewport size. Do not remove. -->
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+        <!-- Site Title -->
+        <title>Boxy Template</title>
+
+        <!-- Author -->
+        <meta name="author" content="you!!" />
+
+        <!-- Site Description -->
+        <meta content="A flexbox centric template" name="description" />
+
+        <!-- CSS: -->
+        <link rel="stylesheet" href="css/style.css" />
+        <link rel="stylesheet" href="css/normalize.css" />
+    </head>
+    <body>
+        <div id="skip"><a href="#content">Skip to content</a></div>
+        <button onclick="topFunction()" id="backscroll" title="Go to top">Top</button>
+
+        <div class="container">
+            <header>
+                <div id="headerdeco">
+                    <p><a href="/index.html">☕ website title!</a></p>
+                </div>
+                <details id="navigation" open>
+                    <summary>Navigation</summary>
+                    <nav>
+                        <a href="">link</a>
+                        <a href="">link</a>
+                        <a href="">link</a>
+                        <a href="">link</a>
+                        <a href="">link</a>
+                        <a href="">link</a>
+                        <a href="">link</a>
+                    </nav>
+                </details>
+            </header>
+            <main id="content">
+                <div class="full box">
+                    <h1>Intro and Header</h1>
+                    <p>
+                        <b>Ahem</b>, welcome to my very first template I'm like ... fully making to <i>share</i> with
+                        others, so please excuse any roughness or lack of clarity. If you'd like to see a fully 'edited'
+                        version of this template, check out
+                        <a href="https://zhongvie.neocities.org/templates/boxy.html">my example</a>.
+                    </p>
+                    <p>
+                        I will now show you how to use the most common HTML text elements:
+                        <b>This is bold text.</b>
+                        <strong>This is also bold text.</strong>
+                        <i>This is italic text.</i>
+                        <em>This is also italic text.</em>
+                        <s>This is strikethrough text.</s>
+                        <u>This is underlined text.</u>
+                        <a href="https://petrapixel.neocities.org/">This is a link.</a>
+                        <a href="https://petrapixel.neocities.org/" target="_blank"
+                            >This is a link that will open in a new tab.</a
+                        >
+                        <code>This is code (displayed in a monospace font).</code>
+                        <abbr title="Example.">This is an abbreviation (Try hovering over it).</abbr>
+                        <mark>This is highlighted text.</mark>
+                        This is a line break (The br stands for break.): <br />It's different from a paragraph because
+                        it does not add space inbetween the lines of text.
+                    </p>
+                    <p>
+                        This is a paragraph. As you can see, there's a bit of space between it and the previous
+                        paragraph.
+                    </p>
+                    <hr />
+                    <p>
+                        And this is a divider! You can also add a cool drop shadow to images using
+                        <code>.image-shadow</code>
+                    </p>
+                    <p>Some of the features of this template include:</p>
+                    <ul>
+                        <li>A decorative border to add to images using <code>.image-deco</code></li>
+                        <li>Outgoing links having an arrow attached to them</li>
+                        <li>
+                            A scrollable area you can place anywhere (and can change the size of by using inline CSS to
+                            just set it off the default 200px)
+                        </li>
+                        <li>
+                            Colour variables + system-respecting dark mode colours
+                            <ul>
+                                <li>
+                                    Also variables for changing the size of the whole website itself! It's currently at
+                                    900px
+                                </li>
+                                <li>
+                                    You can also swap out the headers based on dark/light mode, and change their
+                                    heights!
+                                </li>
+                            </ul>
+                        </li>
+                        <li>Focus elements + skip to content</li>
+                        <li>
+                            A mobile friendly layout + a mobile navigation with a dropdown toggle to hide/show the
+                            buttons
+                        </li>
+                        <li>
+                            Helper classes like <code>.hide-mobile</code> and <code>.hide-desktop</code> to easily
+                            enable/disable mobile-specific and desktop-only things (if you're on mobile, you may see a
+                            box only meant for you!), and others like <code>.center-item</code>,
+                            <code>.float-img-right</code> (which on mobile will turn it to a non-floating item)
+                        </li>
+                    </ul>
+                    <p>
+                        <i>Some</i> Javascript is included, though it's mostly for going back to the top of the site,
+                        and the mobile toggle for the nav.
+                    </p>
+                </div>
+
+                <div class="half box clearfix">
+                    <h2>Heading 2</h2>
+                    <img src="https://placehold.co/200x300" class="image-deco float-img-left" alt="" />
+                    <p>This is a simple third of a box and you can keep writing here and keep going on too.</p>
+                    <p>
+                        You can add whatever images you wanna do too!! Just make sure you go beyond the image if you
+                        wanna add more stuff like identity buttons and what not. It's funky as hell tho if your text
+                        doesn't go beyond the float. ... or if there's weird spacing.
+                    </p>
+                </div>
+
+                <div class="quarter box">
+                    <h3>Heading 3 + Credits</h3>
+                    <ul>
+                        <li><a href="https://kalechips.net">Kalechips</a> for the flexbox sections</li>
+                        <li>
+                            <a href="https://petrapixel.neocities.org/">Petrapixel</a> for various snippets + the HTML
+                            tag examples
+                        </li>
+                        <li>
+                            <a href="https://salarua.neocities.org/misc/accessible_marquee/">Salarua</a> for the
+                            accessibility marquee
+                        </li>
+                        <li>
+                            <a href="https://www.magicpattern.design/tools/css-backgrounds">Magic Pattern</a> for the
+                            background CSS
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="quarter">
+                    <div class="box hide-mobile">
+                        <p>
+                            The image below shows how
+                            <code>.image-shadow</code> works! You can apply it to any image you'd like.
+                        </p>
+                    </div>
+                    <div class="box hide-mobile">
+                        <div class="center-item">
+                            <img
+                                src="https://s-s.dcave.net/cache/images/9/9cat2q.png"
+                                alt=""
+                                loading="lazy"
+                                class="image-shadow" />
+                        </div>
+                        <p>No I don't know either why I included one of my dragons here.</p>
+                    </div>
+                </div>
+
+                <div class="full box">
+                    <!-- Example of a 'floating' decoration that's invisible on mobile -->
+                    <img
+                        src="https://placehold.co/50x50"
+                        class="hide-mobile"
+                        loading="lazy"
+                        alt=""
+                        style="
+                            position: absolute;
+                            left: -20px;
+                            top: -10px;
+                            z-index: 2;
+                            pointer-events: none;
+                            transform: rotate(-25deg);
+                        " />
+                    <div class="marquee">
+                        <div>
+                            <img src="https://placehold.co/88x31" alt="" />
+                            <img src="https://placehold.co/88x31" alt="" />
+                            <img src="https://placehold.co/88x31" alt="" />
+                            <img src="https://placehold.co/88x31" alt="" />
+                            <img src="https://placehold.co/88x31" alt="" />
+                            <img src="https://placehold.co/88x31" alt="" />
+                            <img src="https://placehold.co/88x31" alt="" />
+                            <img src="https://placehold.co/88x31" alt="" />
+                            <img src="https://placehold.co/88x31" alt="" />
+                            <img src="https://placehold.co/88x31" alt="" />
+                            <img src="https://placehold.co/88x31" alt="" />
+                            <img src="https://placehold.co/88x31" alt="" />
+                        </div>
+                    </div>
+                </div>
+
+                <div class="twothird box">
+                    <h2>Scrollable Section</h2>
+                    <div class="scrollable">
+                        <ul>
+                            <li><b>Date: </b>wow cool update goes here</li>
+                            <li><b>Date: </b>wow cool update goes here</li>
+                            <li><b>Date: </b>wow cool update goes here</li>
+                            <li><b>Date: </b>wow cool update goes here</li>
+                            <li><b>Date: </b>wow cool update goes here</li>
+                            <li><b>Date: </b>wow cool update goes here</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="third box">
+                    <p>This is a box to test various inputs like dropdowns + text areas</p>
+                    <p><input type="text" value="Input" title="Input Test" /></p>
+                    <p>
+                        <select title="Selection Test">
+                            <option selected>Selection</option>
+                            <option>Option 1</option>
+                            <option>Option 2</option>
+                            <option>Option 3</option>
+                        </select>
+                    </p>
+                    <p><textarea title="Text Area Test">Textarea</textarea></p>
+                    <div class="center-item">
+                        <button type="button">Button</button>
+                        <button type="button">Button</button>
+                    </div>
+                </div>
+
+                <div class="full box hide-desktop">
+                    <p class="center">Hi! I'm a box that only appears on mobile! I will not be here on desktop! 😳</p>
+                </div>
+
+                <div class="full box">
+                    <h2>Gallery</h2>
+                    <p>
+                        Wow look it's a little mini gallery you can use to show whatever images you wanna show!! It's
+                        currently set to 20% per image (so 5 images per row, but you can edit
+                        <code>.image-gallery</code> for that. Also a cool example of a full-width image below!
+                    </p>
+                    <div class="image-gallery">
+                        <div><img alt="" src="https://placedog.net/400/280" loading="lazy" /></div>
+                        <div><img alt="" src="https://placedog.net/200/280" loading="lazy" /></div>
+                        <div><img alt="" src="https://placedog.net/300/280" loading="lazy" /></div>
+                        <div><img alt="" src="https://placedog.net/300/480" loading="lazy" /></div>
+                        <div><img alt="" src="https://placedog.net/300/580" loading="lazy" /></div>
+                    </div>
+
+                    <img src="https://placedog.net/900/380" class="full-width-image image-deco" alt="" />
+                </div>
+
+                <div class="full box">This is a full-width box</div>
+                <div class="half box">This is a half-width box</div>
+                <div class="half box">This is a half-width box</div>
+                <div class="third box">This is a third-width box</div>
+                <div class="twothird box">This is a two thirds-width box</div>
+                <div class="twothird box">This is a three quarter-width box</div>
+                <div class="quarter box">This is a quarter-width box</div>
+            </main>
+            <footer>2025. boxy template by <a href="https://zhongvie.neocities.org">zhongvie</a>.</footer>
+        </div>
+
+        <!-- JavaScript: -->
+        <script src="js/scroll-to-top.js"></script>
+        <script src="js/mobile-nav.js"></script>
+    </body>
+</html>
