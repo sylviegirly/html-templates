@@ -362,6 +362,7 @@ h6 {
 hr {
     border: none;
     border-top: 2px dotted var(--accent);
+    overflow: hidden;
 }
 
 bold,
@@ -535,6 +536,7 @@ main ul,
 main ol {
     padding-left: 20px;
     margin: 5px 0 5px 10px;
+    overflow: hidden;
 }
 
 main li {

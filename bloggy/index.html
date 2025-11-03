@@ -1,0 +1,319 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <!-- Setting character encoding and viewport size. Do not remove. -->
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+        <!-- Site Title -->
+        <title>Bloggy Template</title>
+
+        <!-- Author -->
+        <meta name="author" content="you!!" />
+
+        <!-- Site Description -->
+        <meta content="A flexbox centric template" name="description" />
+
+        <!-- FavIcon, sorry it's an ugly WEBP link but you can change it to anything else -->
+        <link rel="icon" type="image/webp" href="https://files.catbox.moe/tx39k1.webp" />
+
+        <!-- CSS: -->
+        <link rel="stylesheet" href="css/normalize.css" />
+        <link rel="stylesheet" href="css/style.css" />
+    </head>
+    <body>
+        <!-- ACCESSIBILITY, DO NOT REMOVE -->
+        <div id="skip"><a href="#content">Skip to content</a></div>
+        <button onclick="topFunction()" id="backscroll" title="Go to top">Top</button>
+
+        <div class="container">
+            <div id="left-sidebar">
+                <div class="about">
+                    <div class="quote">
+                        <div class="quotemark">“</div>
+                        <p>you can put any cool quote here, the side will expand out to your writing</p>
+                    </div>
+                    <div class="icon">
+                        <img src="https://placehold.co/200" loading="lazy" alt="" />
+                    </div>
+                    <div class="description">
+                        <p>
+                            Short intro can go here. You can remove this part but it'll make mobile look a little weird
+                            since it's made with the idea in mind of having text here. Feel free to decorate it with
+                            <code>.hide-desktop</code> images if it looks empty on mobile.
+                        </p>
+                    </div>
+                </div>
+                <nav>
+                    <a href="">link</a>
+                    <a href="">link</a>
+                    <a href="">longer link</a>
+                    <a href="">cooler link</a>
+                    <!-- most likely will drop this, doesn't work well on mobile -->
+                    <!--<details>
+                        <summary>dropdown</summary>
+                        <a href="">wow another link!</a>
+                        <a href="">wow another link!</a>
+                    </details>-->
+                    <a href="">awesome link</a>
+                </nav>
+                <section class="hide-mobile" style="text-align: center">
+                    <div class="center-item"><img src="https://placehold.co/88x31" alt="" /></div>
+                    <p>
+                        <textarea
+                            id="site-button"
+                            name="site-button"
+                            style="width: 100%; height: 40px; font-size: 0.8em">
+Textarea</textarea
+                        ><label for="site-button">Website button!</label>
+                    </p>
+                </section>
+            </div>
+            <main id="content">
+                <section>
+                    <h1>Intro and Header</h1>
+                    <p>
+                        If you'd like to see a fully 'edited' version of this template, check out
+                        <a href="https://zhongvie.neocities.org/templates/bloggy.html">my example</a>.
+                    </p>
+                    <p>
+                        I will now show you how to use the most common HTML text elements:
+                        <b>This is bold text.</b>
+                        <strong>This is also bold text.</strong>
+                        <i>This is italic text.</i>
+                        <em>This is also italic text.</em>
+                        <s>This is strikethrough text.</s>
+                        <u>This is underlined text.</u>
+                        <a href="/index.html">This is an internal link.</a>
+                        <a href="https://petrapixel.neocities.org/" target="_blank"
+                            >This is a link that will open in a new tab and site.</a
+                        >
+                        <code>This is code (displayed in a monospace font).</code>
+                        <abbr title="Example.">This is an abbreviation (Try hovering over it).</abbr>
+                        <mark>This is highlighted text.</mark>
+                        This is a line break (The br stands for break.): <br />It's different from a paragraph because
+                        it does not add space inbetween the lines of text.
+                    </p>
+                    <p>
+                        This is a paragraph. As you can see, there's a bit of space between it and the previous
+                        paragraph.
+                    </p>
+                    <hr />
+                    <p>
+                        And this is a divider! You can also add a cool glow to images using
+                        <code>.image-glow</code>
+                    </p>
+                    <p>Some of the features of this template include:</p>
+                    <ul>
+                        <li>
+                            A decorative border to add to images using <code>.image-deco</code> (and the glow mentioned
+                            above)
+                        </li>
+                        <li>Outgoing links having an arrow attached to them</li>
+                        <li>A marquee with an adjustable scroll speed (thanks to Salarua!)</li>
+                        <li>
+                            A scrollable area you can place anywhere (and can change the size of by using inline CSS to
+                            just set it off the default 200px)
+                        </li>
+                        <li>
+                            Colour variables + system-respecting dark mode colours
+                            <ul>
+                                <li>
+                                    Also variables for changing the size of the sidebar + content! Currently it's at
+                                    250px for the sidebar and 700px for the main content
+                                </li>
+                            </ul>
+                        </li>
+                        <li>Pixel decorations for H1 and H2 which you can swap out using variables</li>
+                        <li>Focus elements + skip to content</li>
+                        <li>
+                            A mobile friendly layout + a mobile navigation with a dropdown toggle to hide/show the
+                            buttons
+                        </li>
+                        <li>
+                            Helper classes like <code>.hide-mobile</code> and <code>.hide-desktop</code> to easily
+                            enable/disable mobile-specific and desktop-only things (if you're on mobile, you may see a
+                            box only meant for you!), and others like <code>.center-item</code>,
+                            <code>.float-img-right</code>, and <code>.float-img-left</code> (which on mobile will turn
+                            it to a non-floating item)
+                        </li>
+                    </ul>
+                    <p><i>Some</i> Javascript is included, though it's mostly for going back to the top of the site.</p>
+                    <hr />
+                    <details>
+                        <summary>Credits</summary>
+                        <ul>
+                            <li>
+                                <a href="https://rentry.org/lavender-pix">lavendergalactic</a> for the header and
+                                favicon pixels
+                            </li>
+                            <li>
+                                <a href="https://salarua.neocities.org/misc/accessible_marquee/">Salarua</a> for the
+                                accessibility marquee
+                            </li>
+                            <li>
+                                <a href="https://codepen.io/sadness97/full/dPoEqNN">sadgirl</a> for the tiled
+                                backgrounds
+                            </li>
+                            <li>
+                                <a href="https://www.deviantart.com/king-lulu-deer">king-lulu-deer</a> for the wing
+                                pixel
+                            </li>
+                        </ul>
+                    </details>
+                </section>
+                <section>
+                    <div class="marquee">
+                        <div>
+                            <img src="https://placehold.co/88x31" alt="" />
+                            <img src="https://placehold.co/88x31" alt="" />
+                            <img src="https://placehold.co/88x31" alt="" />
+                            <img src="https://placehold.co/88x31" alt="" />
+                            <img src="https://placehold.co/88x31" alt="" />
+                            <img src="https://placehold.co/88x31" alt="" />
+                            <img src="https://placehold.co/88x31" alt="" />
+                            <img src="https://placehold.co/88x31" alt="" />
+                            <img src="https://placehold.co/88x31" alt="" />
+                            <img src="https://placehold.co/88x31" alt="" />
+                            <img src="https://placehold.co/88x31" alt="" />
+                            <img src="https://placehold.co/88x31" alt="" />
+                            <img src="https://placehold.co/88x31" alt="" />
+                            <img src="https://placehold.co/88x31" alt="" />
+                        </div>
+                    </div>
+                </section>
+                <section class="hide-desktop">
+                    <h2>Surprise Box!</h2>
+                    Hi! I'm a box you can only see on mobile, you <i>will not</i> see me on the desktop! Have a cookie.
+                    🍪
+                </section>
+                <section>
+                    <h2>Heading 2</h2>
+                    <p>Wow look it's a little mini gallery you can use to show whatever images you wanna show!!</p>
+                    <p>These are multiple images in a row:</p>
+                    <div class="image-gallery">
+                        <div><img alt="" src="https://placedog.net/400/280" loading="lazy" /></div>
+                        <div><img alt="" src="https://placedog.net/200/280" loading="lazy" /></div>
+                        <div><img alt="" src="https://placedog.net/300/280" loading="lazy" /></div>
+                        <div><img alt="" src="https://placedog.net/300/480" loading="lazy" /></div>
+                        <div><img alt="" src="https://placedog.net/300/580" loading="lazy" /></div>
+                    </div>
+                    <p>Here's a full width image!</p>
+                    <img
+                        src="https://placedog.net/800/380"
+                        alt=""
+                        class="full-width-image image-deco hide-mobile"
+                        loading="lazy" />
+                </section>
+                <section class="clearfix">
+                    <div class="float-img-right hide-mobile">
+                        <img src="../oc/hideki/img/stamp_1.png" alt="" /><br /><img
+                            src="../oc/hideki/img/stamp_2.png"
+                            alt="" /><br /><img src="../oc/hideki/img/stamp_3.png" alt="" /><br /><img
+                            src="../oc/hideki/img/stamp_4.png"
+                            alt="" /><br /><img src="../oc/hideki/img/stamp_5.png" alt="" /><br /><img
+                            src="../oc/hideki/img/stamp_6.png"
+                            alt="" /><br /><img src="../oc/hideki/img/stamp_7.png" alt="" /><br />
+                    </div>
+                    <h3>Heading 3</h3>
+                    <img src="https://placedog.net/200/400" class="float-img-left image-deco hide-mobile" />
+                    <p>You can do a bunch of cool stuff here!!</p>
+                    <ul>
+                        <li>Unsorted list</li>
+                        <li>Unsorted list</li>
+                        <li>
+                            Unsorted list
+                            <ul>
+                                <li>And within a list!</li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <hr />
+                    <p>
+                        Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
+                        nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At
+                        vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata
+                        sanctus est Lorem ipsum dolor sit amet.
+                    </p>
+
+                    <ol>
+                        <li>Sorted list</li>
+                        <li>Sorted list</li>
+                        <li>Sorted list</li>
+                    </ol>
+                </section>
+                <section>
+                    <img
+                        src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/cf2836cb-5893-4a6c-b156-5a89d94fc721/daymbdh-c5acfef0-0b27-479c-a96a-9198f0357921.gif?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiIvZi9jZjI4MzZjYi01ODkzLTRhNmMtYjE1Ni01YTg5ZDk0ZmM3MjEvZGF5bWJkaC1jNWFjZmVmMC0wYjI3LTQ3OWMtYTk2YS05MTk4ZjAzNTc5MjEuZ2lmIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.eyiMWFPzVDjivwZz814q-tCxvQIfTj4fYMt9Mruwm_Y"
+                        class="float-img-right hide-mobile"
+                        alt="" />
+                    <h4>Heading 4</h4>
+                    <p>Here are two columns:</p>
+                    <div class="two-columns">
+                        <div>
+                            <p>Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr.</p>
+                            <p>At vero eos et accusam et justo duo dolores et ea rebum.</p>
+                            <div class="center-item">
+                                <a href="https://www.deviantart.com/kittea-paws/art/fluffy-pastel-cat-ears-824419141">
+                                    <img
+                                        src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/2920b107-ff04-45f0-8cee-f15c7e0e729d/ddmu5vp-0b5c04e0-09aa-47ab-83d3-e1bc97955996.gif?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiIvZi8yOTIwYjEwNy1mZjA0LTQ1ZjAtOGNlZS1mMTVjN2UwZTcyOWQvZGRtdTV2cC0wYjVjMDRlMC0wOWFhLTQ3YWItODNkMy1lMWJjOTc5NTU5OTYuZ2lmIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.UqpWPG_rPug3EMiCQq8ezsQ9TgdNJ3IIhqp808Dn-HQ"
+                                        alt=""
+                                        loading="lazy"
+                                        class="image-glow"
+                                /></a>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="scrollable">
+                                <p><b>Cool Update:</b> words words words</p>
+                                <p>
+                                    Here's a cool area that can scroll as you write more in it; it's set to be at 200px
+                                    by default but you can easily change that in the CSS or in the HTML directly!
+                                </p>
+                                <p>
+                                    You can use this to dedicate to your updates, or anything else like webrings and
+                                    what not.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <hr />
+                    <h5>Heading 5</h5>
+                    <pre>
+&#x3C;div class=&#x22;two-columns&#x22;&#x3E;
+    &#x3C;div&#x3E;
+        &#x3C;p&#x3E;Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr.&#x3C;/p&#x3E;
+        &#x3C;p&#x3E;At vero eos et accusam et justo duo dolores et ea rebum.&#x3C;/p&#x3E;
+    &#x3C;/div&#x3E;
+    &#x3C;div&#x3E;
+        &#x3C;p&#x3E;Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr.&#x3C;/p&#x3E;
+        &#x3C;p&#x3E;At vero eos et accusam et justo duo dolores et ea rebum.&#x3C;/p&#x3E;
+    &#x3C;/div&#x3E;
+&#x3C;/div&#x3E;</pre
+                    >
+                </section>
+                <section>
+                    <h6>Heading 6</h6>
+                    <p>Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorp</p>
+
+                    <p><input type="text" value="Input" /></p>
+                    <p>
+                        <select>
+                            <option selected>Selection</option>
+                            <option>Option 1</option>
+                            <option>Option 2</option>
+                            <option>Option 3</option>
+                        </select>
+                    </p>
+                    <p><textarea>Textarea</textarea></p>
+                    <p><button type="button">Button</button></p>
+                </section>
+            </main>
+        </div>
+        <footer>2025. bloggy template by <a href="https://vgen.co/asuraid">asuraid</a>.</footer>
+
+        <!-- Scroll to Top -->
+        <script src="../js/scroll-to-top.js"></script>
+    </body>
+</html>
