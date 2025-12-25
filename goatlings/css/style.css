@@ -1,0 +1,746 @@
+:root {
+    --padding: 10px;
+
+    --user-deco: url(/img/goatface.gif);
+    --user-color: #aa0a26;
+    --active-goat: url(/img/gray.gif);
+
+    --content-bg: #ffffcd;
+    --main-bg: #fff;
+    --main-bg-outline: #ae8960;
+
+    --background-image: url(/img/green_bg.png);
+    --header-img: url(/img/GoatlingsHeader.gif);
+    --goat-side: url();
+
+    --text: #604325;
+    --bold: #e72083;
+    --italics: #52252d;
+
+    --header: #604325;
+    --header-underline: #ccc5bd;
+
+    --link: #0d85c1;
+    --link-hover: #a6d8f1;
+
+    /* one off/specific colours here */
+    --nav-bg: #956e44;
+    --nav-bg-hover: #3a2316;
+    --nav-outline: #af8a61;
+    --nav-outline-hover: #9a6741;
+    --nav-text: #f8f8c4;
+    --nav-text-outline: #d5b46b;
+
+    --home-h1-bg: #ff9f80;
+    --home-h1-border: #d1f2a5;
+    --home-h1-text: white;
+    --home-h2-bg: #eda45f;
+    --home-h2-text: white;
+    --home-icon-border: black;
+
+    --goat-outline: #eee;
+
+    @media (prefers-color-scheme: dark) {
+        --content-bg: #1a181e;
+        --main-bg: #121212;
+        --main-bg-outline: #424754;
+
+        --background-image: url(/img/blue_bg.png);
+        --header-img: url(/img/GoatlingsHeader.gif);
+
+        --text: #ffffff;
+        --bold: #dd3c60;
+        --italics: pink;
+
+        --header: #c548ab;
+        --header-underline: #312d30;
+
+        --link: #e2708a;
+        --link-hover: #bc1e42;
+
+        --nav-bg: #8484aa;
+        --nav-bg-hover: #3d3d6b;
+        --nav-outline: #d4d2ec;
+        --nav-outline-hover: #8888e4;
+        --nav-text: #dddbfa;
+        --nav-text-outline: #635f8f;
+
+        --home-h1-bg: #8484aa;
+        --home-h1-border: #d4d2ec;
+        --home-h1-text: white;
+        --home-h2-bg: #4d566d;
+        --home-h2-text: white;
+        --home-icon-border: white;
+
+        --goat-outline: #212121;
+    }
+}
+
+@font-face {
+    font-family: "Comic Relief";
+    font-display: swap;
+    src: url(/font/ComicRelief-Regular.ttf);
+}
+
+/* -------------------------------------------------------- */
+/* SCROLLBAR STYLING */
+/* -------------------------------------------------------- */
+/* Firefox */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: var(--bold) transparent;
+}
+
+/* Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+    width: 5px;
+}
+
+*::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: transparent;
+    border-radius: 10px;
+    border: 3px double var(--bold);
+}
+
+::selection {
+    color: var(--home-h1-text);
+    background: var(--home-h1-bg);
+}
+
+/* -------------------------------------------------------- */
+/* BASICS */
+/* -------------------------------------------------------- */
+body {
+    font-family: Arial, sans-serif;
+    color: var(--text);
+    font-size: 0.8em;
+    background-image: var(--background-image);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+
+    &:focus-visible {
+        outline-color: red !important;
+        outline-offset: -1px !important;
+        outline-style: dotted !important;
+        outline-width: 2px !important;
+        border-color: transparent;
+    }
+}
+
+html {
+    position: relative;
+}
+
+html,
+body {
+    padding: 0;
+    margin: 0;
+}
+
+a {
+    color: var(--link);
+    text-decoration: none;
+    transition: 0.25s;
+    line-height: 1rem;
+    font-weight: bold;
+
+    &:hover {
+        color: var(--link-hover);
+        text-decoration: none;
+    }
+}
+
+/* only add external links to paragraphs, blockquotes, and lists */
+main p a[href^="http"]:after,
+main blockquote a[href^="http"]:after,
+main li a[href^="http"]:after {
+    display: inline-block;
+    content: "↗";
+    margin-left: 1px;
+    background-size: 1rem 1rem;
+}
+
+/* -------------------------------------------------------- */
+/* CONTENT STYLING */
+/* -------------------------------------------------------- */
+#contentwrapper {
+    width: 70%;
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: var(--content-bg);
+}
+
+#bodycontainer {
+    display: grid;
+    grid-template-areas: "menu content";
+    grid-template-columns: 130px 3fr;
+    gap: 10px;
+    padding: var(--padding);
+}
+
+main {
+    background-color: var(--main-bg);
+    padding: var(--padding);
+    border-radius: 5px;
+    grid-area: content;
+    line-height: 1.35em;
+    position: relative;
+}
+
+/* -------------------------------------------------------- */
+/* FORMATTING */
+/* -------------------------------------------------------- */
+main p {
+    padding: 5px 0;
+}
+
+main p:first-child {
+    padding-top: 0;
+}
+
+main p:last-child {
+    padding-bottom: 0;
+}
+
+/* -------------------------------------------------------- */
+/* HEADER + PET ICON */
+/* -------------------------------------------------------- */
+header {
+    width: 100%;
+    height: 125px;
+    background-image: var(--header-img);
+    background-position: center;
+}
+
+header::after {
+    content: "";
+    background-image: var(--active-goat);
+    width: 110px;
+    height: 110px;
+    margin-top: 10px;
+    background-repeat: no-repeat;
+    background-position: center;
+    float: right;
+    background-size: contain;
+}
+
+#user-info {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 50px;
+    padding: var(--padding);
+}
+
+#user-info #left-user {
+    flex: 1;
+    justify-content: left;
+    align-self: center;
+    flex-direction: column;
+}
+
+#user-info #right-user {
+    flex: 1;
+    justify-content: right;
+    align-self: center;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+.user-icon::before {
+    content: " ";
+    background: var(--user-deco);
+    background-repeat: no-repeat;
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    margin-right: 3px;
+}
+
+#timer {
+    font-size: 0.8em;
+}
+
+/* -------------------------------------------------------- */
+/* MAIN CONTENT + NAV */
+/* -------------------------------------------------------- */
+#bodycontainer nav {
+    grid-area: menu;
+    font-family: "Comic Relief", system-ui;
+    font-style: normal;
+    position: sticky;
+    top: 10px;
+    height: fit-content;
+}
+
+/* BUTTON VERSION */
+.nav-button {
+    font-variant-caps: small-caps;
+    font-weight: bold;
+    font-size: 1rem;
+    cursor: pointer;
+    display: block;
+    width: 100%;
+    background-color: var(--nav-bg);
+    color: var(--nav-text);
+    text-align: center;
+    margin: 5px 0;
+    padding: 5px 0;
+    border-radius: 5px;
+    border: 5px solid var(--nav-outline);
+    transition: 0.5s;
+    text-shadow:
+        -2px -2px 2px var(--nav-text-outline),
+        2px -2px 2px var(--nav-text-outline),
+        -2px 2px 2px var(--nav-text-outline),
+        2px 2px 2px var(--nav-text-outline);
+}
+
+.nav-button:hover {
+    background-color: var(--nav-bg-hover);
+    border: 5px solid var(--nav-outline-hover);
+    transform: scale(1.1);
+}
+
+/* UL VERSION */
+#bodycontainer nav ul {
+    width: 100%;
+    padding-left: 0;
+}
+
+#bodycontainer nav li {
+    font-size: 1rem;
+    display: block;
+    width: 100%;
+    background-color: var(--nav-bg);
+    color: var(--nav-text);
+    text-align: center;
+    margin: 5px 0;
+    padding: 5px 0;
+    border-radius: 5px;
+    border: 5px solid var(--nav-outline);
+    transition: 0.5s;
+}
+
+#bodycontainer nav li:hover {
+    background-color: var(--nav-bg-hover);
+    border: 5px solid var(--nav-outline-hover);
+    transform: scale(1.1);
+}
+
+#bodycontainer nav li:first-child {
+    margin-top: 0;
+}
+
+#bodycontainer nav li:last-child {
+    margin-bottom: 0;
+}
+
+#bodycontainer nav li a {
+    font-variant-caps: small-caps;
+    line-height: 0;
+    color: var(--nav-text);
+    text-shadow:
+        -2px -2px 2px var(--nav-text-outline),
+        2px -2px 2px var(--nav-text-outline),
+        -2px 2px 2px var(--nav-text-outline),
+        2px 2px 2px var(--nav-text-outline);
+}
+
+/* -------------------------------------------------------- */
+/* DECORATIVE */
+/* -------------------------------------------------------- */
+#news section,
+#goats section {
+    border: 1px solid var(--main-bg-outline);
+    border-radius: 4px;
+    padding: var(--padding);
+    margin: 10px 0;
+}
+
+h2 {
+    color: var(--header);
+    font-size: 1.4em;
+    margin: 10px 0;
+}
+
+bold,
+b,
+strong {
+    color: var(--bold);
+}
+
+i,
+em {
+    color: var(--italics);
+}
+
+u {
+    text-decoration-color: var(--bold);
+}
+
+hr {
+    border: none;
+    border-bottom: 1px solid var(--header-underline);
+}
+
+blockquote {
+    padding-left: 20px;
+}
+
+.user-color {
+    color: var(--user-color) !important;
+}
+
+abbr,
+.tippy {
+    text-decoration: underline;
+    text-decoration-style: dotted;
+    text-decoration-color: var(--bold);
+}
+
+/* misc/single-use stuff */
+.page-title {
+    border-bottom: 1px solid var(--header-underline);
+}
+
+#goats section.custom-code {
+    border: none;
+    margin: 0;
+}
+
+#search {
+    font-family: arial;
+    margin-top: 10px;
+    width: 100%;
+    background-color: var(--nav-bg);
+    color: var(--nav-text);
+    text-align: center;
+    margin: 5px 0;
+    padding: 10px;
+    border-radius: 5px;
+    border: 5px solid var(--nav-outline);
+    transition: 0.5s;
+}
+
+#search input,
+#search select {
+    width: 100%;
+    margin-bottom: 5px;
+}
+
+.goat-img {
+    max-width: 200px;
+}
+
+/* helper classes */
+.hide-desktop {
+    display: none;
+}
+
+.flexbox-lazy {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    padding: 5px;
+    gap: 5px;
+}
+
+.flexbox-lazy a {
+    text-decoration: none;
+    line-height: 0;
+}
+
+/* center any item */
+.center-item {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* align horizontal */
+    align-items: center; /* align vertical */
+    gap: 2px;
+}
+
+/* image floats */
+.float-img-right {
+    max-width: 100px;
+    float: right;
+    margin: 5px 0 5px 10px;
+}
+
+.pet-image-active {
+    position: absolute;
+    right: 10px;
+    top: 0;
+    max-width: 100px;
+    pointer-events: none;
+}
+/* -------------------------------------------------------- */
+/* HOME-PAGE SPECIFIC CSS */
+/* -------------------------------------------------------- */
+.home {
+    display: grid;
+    grid-template-areas: "intro aside";
+    grid-template-columns: auto 150px;
+}
+
+#home article {
+    grid-area: intro;
+    border: 6px solid var(--home-h1-bg);
+    padding: 10px;
+}
+
+#home aside {
+    grid-area: aside;
+    text-align: center;
+    justify-content: center;
+    margin-left: 10px;
+}
+
+#home #cool-stuff {
+    border: 3px solid var(--home-h2-bg);
+    background-color: var(--main-bg);
+    margin-top: 10px;
+    text-align: left;
+}
+
+#home #cool-stuff ul {
+    font-size: 0.7rem;
+    margin: 10px 0;
+    padding-left: 20px;
+    padding-right: 5px;
+}
+
+#home #cool-stuff li::marker {
+    color: var(--bold);
+    content: "❤ ";
+}
+
+#home .image-border {
+    border: 2px solid var(--home-icon-border);
+    margin-top: 10px;
+}
+
+#home h1 {
+    font: 2.5em georgia;
+    background: var(--home-h1-bg);
+    color: var(--home-h1-text);
+    text-align: center;
+    border-bottom: 10px solid var(--home-h1-border);
+    text-transform: uppercase;
+    margin: 0 0 10px 0;
+}
+
+#home h2 {
+    background: var(--home-h2-bg);
+    color: var(--home-h2-text);
+    font: 1.1em georgia;
+    text-align: center;
+    margin: 5px 0;
+    font-weight: bold;
+    text-transform: uppercase;
+    padding: 3px 0;
+}
+
+/* -------------------------------------------------------- */
+/* NEWS POSTS */
+/* -------------------------------------------------------- */
+#news .news-header {
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    gap: 5px;
+    line-height: 1rem;
+    margin-bottom: 10px;
+}
+
+#news .news-header .icon {
+    max-width: 50px;
+    max-height: 50px;
+}
+
+#news h3 {
+    font-size: unset;
+    font-weight: bold;
+    color: var(--link);
+    margin-bottom: -8px;
+}
+
+/* -------------------------------------------------------- */
+/* PROFILE LAYOUT */
+/* -------------------------------------------------------- */
+.profile-user {
+    display: grid;
+    grid-template-areas: "profile-content profile-icon";
+    grid-template-columns: 1fr 150px;
+    gap: 10px;
+}
+
+.profile-user .left-side {
+    line-height: 1.3rem;
+    grid-area: profile-content;
+    display: flex;
+    gap: 10px;
+}
+
+.profile-user .right-side {
+    grid-area: profile-icon;
+    align-content: center;
+    text-align: center;
+}
+
+.profile-user hr {
+    border-color: var(--home-icon-border);
+    margin: 5px;
+}
+
+.goat-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+}
+
+.goat-container > div {
+    padding: 10px;
+    border-radius: 4px;
+    border: 1px solid var(--goat-outline);
+    max-width: calc(25% - 10px);
+    text-align: center;
+}
+
+.goat-container > div img {
+    max-width: 160px;
+}
+
+.fave-items,
+.collection {
+    gap: 20px;
+    align-items: baseline;
+    flex-wrap: wrap;
+}
+
+.fave-items > div {
+    max-width: calc(20% - 20px);
+    min-width: 90px;
+    text-align: center;
+}
+
+.collection > div {
+    max-width: calc(100% / 7 - 20px);
+    min-width: 90px;
+    text-align: center;
+}
+
+/* -------------------------------------------------------- */
+/* FOOTER */
+/* -------------------------------------------------------- */
+
+footer {
+    text-align: center;
+    padding: 20px;
+    font-size: 0.7em;
+}
+
+/* Inline Lists */
+footer nav ul {
+    font-size: 1.3em;
+    padding: 0;
+    list-style: none;
+    margin-bottom: 10px;
+}
+
+footer nav li a {
+    font-weight: bold;
+}
+
+footer nav li {
+    display: inline;
+    line-height: 1.2em;
+}
+
+footer nav li:after {
+    content: " |";
+}
+
+footer nav li:first-child {
+    padding-left: 0;
+}
+
+footer nav li:last-child {
+    padding-right: 0;
+}
+
+footer nav li:last-child:after {
+    content: "";
+    margin-left: 0;
+}
+
+/* -------------------------------------------------------- */
+/* ACCESSIBILITY, DO NOT REMOVE */
+/* -------------------------------------------------------- */
+#skip a {
+    position: absolute;
+    display: inline-block;
+    left: 0;
+    top: -1000px;
+    overflow: hidden;
+    transition: top 0.5s ease;
+    background: var(--content-bg);
+    color: var(--link);
+    z-index: 1000;
+    padding: 10px;
+}
+
+#skip a:focus {
+    top: 0;
+    transition: top 0.5s ease;
+}
+
+/* -------------------------------------------------------- */
+/* MOBILE RESPONSIVENESS */
+/* -------------------------------------------------------- */
+@media screen and (max-width: 900px) {
+    #contentwrapper {
+        width: 95%;
+    }
+
+    #bodycontainer {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .home {
+        display: block;
+    }
+
+    #bodycontainer nav {
+        display: flex;
+        gap: 10px;
+    }
+
+    #bodycontainer nav button,
+    #bodycontainer nav li,
+    #bodycontainer nav ul {
+        margin: 0;
+    }
+
+    .hide-mobile {
+        display: none;
+    }
+
+    #bodycontainer nav {
+        position: static;
+    }
+}

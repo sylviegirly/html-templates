@@ -1,0 +1,509 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <!-- Setting character encoding and viewport size. Do not remove. -->
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <!-- Site Title -->
+        <title>Goatlings</title>
+
+        <!-- Author -->
+        <meta name="author" content="Author" />
+
+        <!-- Site Description -->
+        <meta content="A shrine around the pet game Goatlings." name="description" />
+
+        <!-- FavIcon Gif -->
+        <link rel="icon" type="image/png" href="img/favicon.png" />
+
+        <!-- CSS: -->
+        <link rel="stylesheet" href="css/style.css" />
+        <link rel="stylesheet" href="css/normalize.css" />
+
+        <!-- JavaScript: -->
+        <!--<script src="js/header.js" defer></script>-->
+    </head>
+    <body>
+        <!-- =============================================== -->
+        <!-- Accessibility links. -->
+        <!-- =============================================== -->
+        <div id="skip"><a href="#content">Skip to content</a></div>
+
+        <!-- =============================================== -->
+        <!-- Container. -->
+        <!-- =============================================== -->
+        <div id="contentwrapper">
+            <header></header>
+
+            <!-- =============================================== -->
+            <!-- User Info + Currency. -->
+            <!-- =============================================== -->
+            <div id="user-info" aria-hidden="true">
+                <div id="left-user">
+                    <p>
+                        Welcome <a href="#" class="user-icon user-color">Username</a> - Your active goat is
+                        <a href="#">Goat</a><br />
+                    </p>
+                    <div id="timer"></div>
+                </div>
+                <div id="right-user">
+                    <div>
+                        <p><img src="img/mail3.gif" loading="lazy" alt="mail icon" /></p>
+                    </div>
+                    <div>
+                        <p><img src="img/dd_gem.gif" loading="lazy" alt="diamond dust" /> 1</p>
+                    </div>
+                    <div>
+                        <p><img src="img/SS2.gif" loading="lazy" alt="diamond dust" /> 100</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- =============================================== -->
+            <!-- Body Container. -->
+            <!-- =============================================== -->
+            <div id="bodycontainer">
+                <!-- =============================================== -->
+                <!-- Tab Links. -->
+                <!-- =============================================== -->
+                <nav>
+                    <div class="center-item hide-mobile">
+                        <img src="img/blank.png" alt="" loading="lazy" aria-hidden="true" />
+                    </div>
+                    <button class="nav-button" onclick="openGoatTab('home')">Home</button>
+                    <button class="nav-button" onclick="openGoatTab('news')">News</button>
+                    <button class="nav-button" onclick="openGoatTab('goats')">Profile</button>
+                    <button class="nav-button" onclick="openGoatTab('gallery')">Collection</button>
+                    <button class="nav-button" onclick="openGoatTab('credits')">Credits</button>
+                    <ul>
+                        <li><a href="/index.html">Back to Site</a></li>
+                    </ul>
+
+                    <!-- =============================================== -->
+                    <!-- Fake Search. -->
+                    <!-- =============================================== -->
+                    <div id="search" class="hide-mobile" aria-hidden="true">
+                        <p>Search Keyword</p>
+                        <input tabindex="-1" />
+                        <p>Specifics</p>
+                        <select name="Specifics" id="specifics" tabindex="-1">
+                            <option value="0">-Containing-</option>
+                            <option value="1">-Identical-</option>
+                        </select>
+                        <p>Category</p>
+                        <select name="Category" id="category" tabindex="-1">
+                            <option value="0">-Item Name-</option>
+                            <option value="1">-Member-</option>
+                            <option value="2">-Pets-</option>
+                        </select>
+                        <button tabindex="-1">Search</button>
+                    </div>
+                </nav>
+
+                <!-- =============================================== -->
+                <!-- Main Content. -->
+                <!-- =============================================== -->
+                <main id="content">
+                    <!-- =============================================== -->
+                    <!-- Home Tab. -->
+                    <!-- =============================================== -->
+                    <div id="home" class="tabbed">
+                        <div class="home">
+                            <!-- =============================================== -->
+                            <!-- Home Intro. -->
+                            <!-- =============================================== -->
+                            <article>
+                                <section>
+                                    <h1>Welcome</h1>
+                                </section>
+                                <img
+                                    src="img/goat_cake.png"
+                                    alt=""
+                                    aria-hidden="true"
+                                    style="float: left; margin-right: 10px" />
+                                <p><b>Come one, come all! Welcome to the Kingdom of Goatlings!</b></p>
+                                <p>
+                                    This is a simple (well, simple to me, I do think the code is more towards
+                                    intermediate) one-page shrine I made in memorial to Goatlings shutting down, and in
+                                    the process of making it, I thought I'd make it a template as well for others to
+                                    use; many people have been wanting to save their goats and all their collections in
+                                    some form or another, so hopefully this helps people who are a little more
+                                    savvy/want to learn HTML and CSS in the process.
+                                </p>
+                                <p>
+                                    I will say, this template <b>does not</b> take into account custom goat profiles and
+                                    treasures, it is more catered to showing your goats off in a list, and your gallery
+                                    collections.
+                                </p>
+                                <p>
+                                    Those who are brave can try their hand at making profiles, but this template is
+                                    currently not catered towards that. Those interested may want to check out
+                                    <a href="https://werewolf-girlfriend.itch.io/website-gallery-template"
+                                        >werewolf-girlfriend's gallery</a
+                                    >
+                                    template and how image popups work, or perhaps try their hand at making a tab
+                                    <u>just</u> for goat profiles, and have a little dropdown to swap which goat is
+                                    showing. If I end up doing that at any point for my own, I will return to update
+                                    this code <u>OR</u> offer an alternative that has it as it will be more complicated.
+                                </p>
+                                <p>For what features this template has, check out the <i>news</i> tab above.</p>
+                                <div class="flexbox-lazy">
+                                    <img src="img/home3.gif" alt="welcome to goatlings. register now" loading="lazy" />
+                                    <img
+                                        src="img/home2.gif"
+                                        alt="use appearance dolls to change your pet!"
+                                        loading="lazy" />
+                                    <img
+                                        src="img/home5.gif"
+                                        alt="best viewed with firefox. not 100% compatible on mobile."
+                                        loading="lazy" />
+                                </div>
+                                <section>
+                                    <h2>my beloved goat</h2>
+                                    <div class="flexbox-lazy" style="align-items: baseline">
+                                        <img src="img/party_pooper.png" alt="" loading="lazy" />
+                                        <img src="img/gray.gif" class="goat-img" alt="Gray Goat" loading="lazy" />
+                                        <img src="img/party_pooper_flip.png" alt="" loading="lazy" />
+                                    </div>
+                                </section>
+                                <section>
+                                    <h2>favourite items</h2>
+                                    <div class="flexbox-lazy fave-items">
+                                        <div>
+                                            <img src="img/gray_ad.gif" /><br />
+                                            <p>Basic Gray AD</p>
+                                        </div>
+                                        <div>
+                                            <img src="img/gray_ad.gif" /><br />
+                                            <p>Basic Gray AD</p>
+                                        </div>
+                                        <div>
+                                            <img src="img/gray_ad.gif" /><br />
+                                            <p>Basic Gray AD</p>
+                                        </div>
+                                        <div>
+                                            <img src="img/gray_ad.gif" /><br />
+                                            <p>Basic Gray AD</p>
+                                        </div>
+                                        <div>
+                                            <img src="img/gray_ad.gif" /><br />
+                                            <p>Basic Gray AD</p>
+                                        </div>
+                                    </div>
+                                </section>
+                            </article>
+                            <!-- =============================================== -->
+                            <!-- HA Buddy Aside. -->
+                            <!-- =============================================== -->
+                            <aside class="hide-mobile" aria-hidden="true">
+                                <div id="ha-shuffle"></div>
+                                <p><b>Featured HA Buddy </b><br />You</p>
+                                <div id="cool-stuff">
+                                    <h2 style="margin: 0">Fun Features!</h2>
+                                    <ul>
+                                        <li>Free To Play</li>
+                                        <li>Adopt Goatlings</li>
+                                        <li>Change Their Look</li>
+                                        <li>Battle Center</li>
+                                        <li>Training Center</li>
+                                        <li>Explore Area</li>
+                                        <li>Dress Up Avatar</li>
+                                        <li>User Shops</li>
+                                        <li>User Galleries</li>
+                                        <li>Club Houses</li>
+                                        <li>Bank With Interest</li>
+                                        <li>Restocking</li>
+                                        <li>Trades</li>
+                                        <li>Auctions</li>
+                                        <li>Quests</li>
+                                        <li>Forums</li>
+                                        <li>Live Chat</li>
+                                        <li>Display Name Icons</li>
+                                        <li>Crafting</li>
+                                        <li>Events</li>
+                                        <li>Wishing Well</li>
+                                        <li>Contests</li>
+                                        <li>Limited Editions</li>
+                                        <li>Lucky Boxes</li>
+                                        <li>Arcade</li>
+                                        <li>Shopping District</li>
+                                        <li>VIP Shop</li>
+                                        <li>Cash Shop</li>
+                                        <li>Gift Shop</li>
+                                        <li>Creative Park</li>
+                                        <li>Contribute Designs</li>
+                                        <li>Friendly Community</li>
+                                        <li>Super Cute</li>
+                                        <li>Ad Free</li>
+                                    </ul>
+                                </div>
+                            </aside>
+                        </div>
+                    </div>
+
+                    <!-- =============================================== -->
+                    <!-- History Tab. -->
+                    <!-- =============================================== -->
+                    <div id="news" class="tabbed" style="display: none">
+                        <article>
+                            <h2 class="page-title">Information About the Template</h2>
+                            <section>
+                                <div class="news-header">
+                                    <img src="img/blank.png" class="icon" loading="lazy" alt="" aria-hidden="true" />
+                                    <div>
+                                        <h3>Template Features</h3>
+                                        <p>
+                                            Posted by <a href="#" class="user-icon user-color">Username</a><br />on
+                                            <time>2025-12-24 12:00:00</time>
+                                        </p>
+                                    </div>
+                                </div>
+                                <p>Some of the features of this template include:</p>
+                                <ul>
+                                    <li>Outgoing links having an arrow attached to them</li>
+                                    <li>
+                                        Colour variables + system-respecting dark mode colours, plus variables to easily
+                                        change your user icon, user colour, site background, active goat, and even the
+                                        site header
+                                    </li>
+                                    <li>Focus elements + skip to content</li>
+                                    <li>A mobile friendly layout</li>
+                                    <li>
+                                        Helper classes like <code>.hide-mobile</code> and <code>.hide-desktop</code> to
+                                        easily enable/disable mobile-specific and desktop-only things
+                                    </li>
+                                    <li>
+                                        Random HA buddies on the home page which change on refresh, you can add your own
+                                        HA buddy outfits to swap around (the current ones are the ones I used for an MM
+                                        submission), you can find them in <b>ha-image-swap.js</b>
+                                    </li>
+                                </ul>
+                            </section>
+                            <section>
+                                <div class="news-header">
+                                    <img src="img/blank.png" class="icon" loading="lazy" alt="" aria-hidden="true" />
+                                    <div>
+                                        <h3 id="whatilike">Tag and HTML Showcase</h3>
+                                        <p>
+                                            Posted by <a href="#" class="user-icon user-color">Username</a><br />on
+                                            <time>2025-12-24 12:00:00</time>
+                                        </p>
+                                    </div>
+                                </div>
+                                <p>
+                                    I will now show you how to use the most common HTML text elements:
+                                    <b>This is bold text.</b>
+                                    <strong>This is also bold text.</strong>
+                                    <i>This is italic text.</i>
+                                    <em>This is also italic text.</em>
+                                    <s>This is strikethrough text.</s>
+                                    <u>This is underlined text.</u>
+                                    <a href="../index.html">This is an internal link.</a>
+                                    <a href="https://petrapixel.neocities.org/" target="_blank"
+                                        >This is a link that will open in a new tab.</a
+                                    >
+                                    <code>This is code (displayed in a monospace font).</code>
+                                    <abbr title="Example.">This is an abbreviation (Try hovering over it).</abbr>
+                                    <mark>This is highlighted text.</mark>
+                                    This is a line break (The br stands for break.): <br />It's different from a
+                                    paragraph because it does not add space inbetween the lines of text.
+                                </p>
+                                <p>
+                                    This is a paragraph. As you can see, there's a bit of space between it and the
+                                    previous paragraph.
+                                </p>
+                                <hr />
+                                <p>And this is a divider!</p>
+
+                                <blockquote>
+                                    This is a blockquote. Blockquotes are indented text that usually quotes something,
+                                    or someone.
+                                </blockquote>
+                            </section>
+                        </article>
+                    </div>
+
+                    <!-- =============================================== -->
+                    <!-- Goat Tabs. -->
+                    <!-- =============================================== -->
+                    <div id="goats" class="tabbed" style="display: none">
+                        <article>
+                            <img src="img/OrangeTree.gif" class="pet-image-active" alt="" />
+                            <h2 class="page-title">Profile Your Name</h2>
+                            <section class="custom-code">
+                                <p>
+                                    You could put in custom code here, or remove. This layout isn't catered to have
+                                    custom goat profiles, or tabs, sorry. If you're curious in making tabs for your
+                                    goats, you could do what I did for the tabs here (I used
+                                    <a href="https://www.w3schools.com/w3css/w3css_tabulators.asp"
+                                        >W3 School's CSS tab guide</a
+                                    >).
+                                </p>
+                            </section>
+                            <section>
+                                <!-- =============================================== -->
+                                <!-- Custom Code. -->
+                                <!-- =============================================== -->
+
+                                <!-- =============================================== -->
+                                <!-- User Information. -->
+                                <!-- =============================================== -->
+                                <div class="profile-user">
+                                    <div class="left-side">
+                                        <div>
+                                            <p>
+                                                <b>Username:</b><br /><b>Status:</b><br /><b>Joined:</b><br /><b
+                                                    >Referrals:</b
+                                                ><br /><b>Location:</b><br /><b>Forum Posts:</b><br /><b>Love:</b>
+                                            </p>
+                                        </div>
+                                        <div>
+                                            <p>
+                                                Name<br />Online<br />
+                                                1999-01-01<br />0<br />Not Goatlings<br />1<br />999 (<a href=""
+                                                    >Give Love</a
+                                                >)
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="right-side">
+                                        <div
+                                            style="
+                                                display: flex;
+                                                gap: 5px;
+                                                justify-content: center;
+                                                :center;
+                                                width: 100%;
+                                            ">
+                                            <img src="img/mail3.gif" alt="" loading="lazy" />
+                                            <img src="img/bud.gif" alt="" loading="lazy" />
+                                            <img src="img/premium.gif" alt="" loading="lazy" />
+                                            <img src="img/neutral.gif" alt="" loading="lazy" />
+                                        </div>
+                                        <hr />
+                                        <b>HA Buddy</b><br />
+                                        <img src="img/blank.png" alt="" loading="lazy" />
+                                    </div>
+                                </div>
+
+                                <!-- =============================================== -->
+                                <!-- Goats. -->
+                                <!-- =============================================== -->
+                                <p><b>Goatlings</b></p>
+                                <div class="goat-container">
+                                    <!-- Goat Begins; copy and paste -->
+                                    <div><img src="img/gray.gif" /><a href="#">Name</a></div>
+                                    <!-- Goat Ends -->
+                                </div>
+                            </section>
+                        </article>
+                    </div>
+
+                    <!-- =============================================== -->
+                    <!-- Gallery. -->
+                    <!-- =============================================== -->
+                    <div id="gallery" class="tabbed" style="display: none">
+                        <article>
+                            <h2 class="page-title">Gallery</h2>
+                            <p style="margin-bottom: -10px"><b>Viewing Gallery:</b> collectibles</p>
+                            <p><b>Owner:</b> <a href="#" class="user-icon user-color">Username</a></p>
+                            <p>Put your own personal code here for your collection layout...!</p>
+                            <hr />
+                            <p>Search: <input /> <button>Search</button></p>
+                            <hr />
+                            <div class="flexbox-lazy collection">
+                                <!-- Begin Item -->
+                                <div>
+                                    <img src="img/goat_cake.png" alt="" loading="lazy" />
+                                    <p>Goatling Cake<br />Stock: 99</p>
+                                </div>
+                                <!-- End Item -->
+
+                                <!-- Begin Item -->
+                                <div>
+                                    <img src="img/gray_ad.gif" alt="" loading="lazy" />
+                                    <p>Basic Gray AD<br />Stock: 99</p>
+                                </div>
+                                <!-- End Item -->
+                            </div>
+                        </article>
+                    </div>
+
+                    <!-- =============================================== -->
+                    <!-- Credits. -->
+                    <!-- =============================================== -->
+                    <div id="credits" class="tabbed" style="display: none">
+                        <article>
+                            <h2 class="page-title">Page Credits</h2>
+
+                            <ul>
+                                <li>
+                                    <a href="https://codepen.io/sadness97/pen/VwmBjWo">Image randomizer</a> by sadgrl
+                                </li>
+                                <li><a href="https://necolas.github.io/normalize.css/">Normalize.css</a> by necolas</li>
+                                <li>
+                                    <a href="https://fonts.google.com/specimen/Comic+Relief">Comic Relief</a> font from
+                                    Google Fonts
+                                </li>
+                            </ul>
+                            <h2 class="page-title">Other Resources</h2>
+                            <ul>
+                                <li><a href="https://habuddy.netlify.app/">HA Buddy Creator</a></li>
+                                <li>
+                                    <a
+                                        href="https://drive.google.com/drive/folders/1r_YjtiXvkstD55vYdp56Fis1SvwTBFya?usp=sharing"
+                                        >Goatlings Images</a
+                                    >
+                                </li>
+                                <li>
+                                    <a
+                                        href="https://drive.google.com/drive/folders/1IHi9AmU5CG1ozIXetYz_w-fuwq1djTSV?usp=sharing"
+                                        >Goatlings Hi-res Images</a
+                                    >
+                                </li>
+                                <li>
+                                    <a
+                                        href="https://nightmare-eater.tumblr.com/post/803779028359282688/goatlings-images-archive-ha-buddy-maker"
+                                        >Rob's Tutorial</a
+                                    >
+                                    on exporting your saved HTML pages off actual goatlings, and into Neocities
+                                    <ul>
+                                        <li>
+                                            Do be aware I do not think this is very compatible with this template; my
+                                            template is not based off any of Goatling's code, whereas the HTML export is
+                                            using Goatling's direct CSS
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </article>
+                    </div>
+                </main>
+            </div>
+            <!-- =============================================== -->
+            <!-- Footer. -->
+            <!-- =============================================== -->
+            <footer>
+                <nav>
+                    <ul>
+                        <li><a href="https://vgen.co/asuraid">template credit</a></li>
+                        <li>
+                            <a href="https://goatlings.fandom.com/wiki/Wikiling_--_The_Goatlings_Database"
+                                >goatlings wiki</a
+                            >
+                        </li>
+                        <li><a href="#skip">back to top</a></li>
+                    </ul>
+                </nav>
+                <p>
+                    © Goatlings.com 2010 - 2025 Virtual Pet Goat Site. Site should be compatible on most mobile
+                    browsers.
+                </p>
+            </footer>
+        </div>
+        <script src="js/ha-image-swap.js"></script>
+        <script src="js/time.js"></script>
+        <script src="js/tabs.js"></script>
+    </body>
+</html>
