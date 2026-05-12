@@ -1,16 +1,16 @@
 :root {
     --padding: 10px;
 
-    --user-deco: url(/img/goatface.gif);
+    --user-deco: url(../img/goatface.gif);
     --user-color: #aa0a26;
-    --active-goat: url(/img/gray.gif);
+    --active-goat: url(../img/gray.gif);
 
     --content-bg: #ffffcd;
     --main-bg: #fff;
     --main-bg-outline: #ae8960;
 
-    --background-image: url(/img/green_bg.png);
-    --header-img: url(/img/GoatlingsHeader.gif);
+    --background-image: url(../img/green_bg.png);
+    --header-img: url(../img/GoatlingsHeader.gif);
     --goat-side: url();
 
     --text: #604325;
@@ -45,8 +45,8 @@
         --main-bg: #121212;
         --main-bg-outline: #424754;
 
-        --background-image: url(/img/blue_bg.png);
-        --header-img: url(/img/GoatlingsHeader.gif);
+        --background-image: url(../img/blue_bg.png);
+        --header-img: url(../img/GoatlingsHeader.gif);
 
         --text: #ffffff;
         --bold: #dd3c60;
@@ -79,7 +79,7 @@
 @font-face {
     font-family: "Comic Relief";
     font-display: swap;
-    src: url(/font/ComicRelief-Regular.ttf);
+    src: url(../font/ComicRelief-Regular.ttf);
 }
 
 /* -------------------------------------------------------- */
