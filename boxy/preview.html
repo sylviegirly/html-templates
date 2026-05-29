@@ -1,0 +1,1272 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <title>Boxy Template</title>
+
+        <!-- Author -->
+        <meta name="author" content="Asuraid" />
+
+        <!-- FavIcon, sorry it's an ugly GIF link but you can change it to anything else -->
+        <link
+            rel="icon"
+            type="image/gif"
+            href="https://64.media.tumblr.com/08afad0e510d077c472967a86f19a079/2408ed4c36a938c0-50/s75x75_c1/df6571b9fdab9f0a237c27a8d901b76a5621466f.gif" />
+
+        <!-- Site Description -->
+        <meta content="Boxy template." name="description" />
+        <link rel="stylesheet" href="css/normalize.css" />
+        <script>
+            const monthData = [
+                { name: "January", numOfDays: 31 },
+                { name: "February", numOfDays: 28 },
+                { name: "March", numOfDays: 31 },
+                { name: "April", numOfDays: 30 },
+                { name: "May", numOfDays: 31 },
+                { name: "June", numOfDays: 30 },
+                { name: "July", numOfDays: 31 },
+                { name: "August", numOfDays: 31 },
+                { name: "September", numOfDays: 30 },
+                { name: "October", numOfDays: 31 },
+                { name: "November", numOfDays: 30 },
+                { name: "December", numOfDays: 31 }
+            ];
+            const dayNamesData = ["Su", "Mo", "Tu", "We", "Th", "Fr", "Sa"];
+
+            let todayDate = new Date();
+            let thisDay = todayDate.getDay();
+            let thisMonth = todayDate.getMonth();
+            let thisDate = todayDate.getDate();
+            let thisYear = todayDate.getFullYear();
+            if (thisYear % 4 == 0) monthData[1].numOfDays = 29;
+
+            let startSpaces = thisDate;
+            while (startSpaces > 7) startSpaces -= 7;
+            startSpaces = thisDay - startSpaces + 1;
+            if (startSpaces < 0) startSpaces += 7;
+
+            let tableContent = ["<tr>"];
+            for (let i = 0; i < startSpaces; i++) {
+                tableContent.push("<td class='blank'> </td>");
+            }
+            let count = 1;
+            while (count <= monthData[thisMonth].numOfDays) {
+                if (startSpaces == 0) tableContent.push("</tr><tr>");
+                for (let i = startSpaces; i < 7; i++) {
+                    let dayText = count <= monthData[thisMonth].numOfDays ? count : "";
+                    if (count == thisDate) dayText = `<span class='today'>${dayText}</span>`;
+                    tableContent.push(`<td${dayText == "" ? " class='blank'" : ""}>${dayText}</td>`);
+                    count++;
+                }
+                tableContent.push("</tr>");
+                startSpaces = 0;
+            }
+
+            let daysContent = [];
+            for (let i = 0; i < dayNamesData.length; i++) {
+                daysContent.push(`<td>${dayNamesData[i]}</td>`);
+            }
+
+            let calendar = `
+            <table>
+              <thead>
+                <tr class='month'><td colspan="7">${monthData[thisMonth].name} ${thisYear}</td></tr>
+                <tr class='days'>${daysContent.join("")}</tr>
+              </thead>
+              <tbody>${tableContent.join("")}</tbody>
+            </table>
+            `;
+
+            document.addEventListener("DOMContentLoaded", () => {
+                const calendarWidget = document.querySelector("div#widget-calendar");
+                if (calendarWidget) calendarWidget.innerHTML = calendar;
+            });
+        </script>
+
+        <style>
+            /* -------------------------------------------------------- */
+            /* VARIABLES */
+            /* -------------------------------------------------------- */
+            :root {
+                --website-size: 900px;
+                --border-radius: 5px;
+                --padding: 10px;
+                --focus-color: #f64e00;
+                --marquee-duration: 30s;
+
+                --header-img: url(https://file.garden/Zq0xOX6Iv3i3b1te/Neocities/Other/ZLedit7.png);
+                --header-align: top;
+                --header-height: 300px;
+
+                --title-font: "Geo";
+                --title-color: white;
+
+                --header-font: "Geo";
+                --header-color: #500b0b;
+
+                --bold: #4d1414;
+                --italics: #64291e;
+                --blockquote: #e5d8be;
+                --accent: #4d1414;
+                --font-on-accent: #fff;
+
+                --background: #e5d8be;
+                --background-deco: #dbc79f;
+                --body-font: "Nunito";
+                --font-color: #1f1c1c;
+
+                --links: #672c0d;
+                --links-hover: #000000;
+
+                --borders: #361a1a;
+                --body-bg: #f7efdf;
+
+                --nav-bg: #64341e;
+                --nav-bg-hover: #c89772;
+                --nav-borders: #3a0b0b;
+                --nav-text: white;
+                --nav-text-hover: black;
+
+                --footer-bg: #4f2323;
+                --footer-text: white;
+                --footer-link: orange;
+
+                @media (prefers-color-scheme: dark) {
+                    --header-img: url(https://file.garden/Zq0xOX6Iv3i3b1te/Neocities/Other/ZLedit6.png);
+                    --header-align: top;
+                    --title-color: #330909;
+
+                    --header-color: #e29b26;
+
+                    --bold: #e0a020;
+                    --italics: #f4da9e;
+                    --blockquote: #2e2d2a;
+                    --accent: #e8cc68;
+                    --font-on-accent: #fff;
+
+                    --background: #2c2a25;
+                    --background-deco: rgba(219, 199, 159, 0.16);
+                    --font-color: #eddfdf;
+
+                    --links: #f69827;
+                    --links-hover: #ffffff;
+
+                    --borders: #c97b50;
+                    --body-bg: #23211b;
+
+                    --nav-bg: #ce9073;
+                    --nav-bg-hover: #522c0f;
+                    --nav-borders: #b74b21;
+                    --nav-text: #000000;
+                    --nav-text-hover: #ffffff;
+
+                    --footer-bg: #dfab6c;
+                    --footer-text: #000000;
+                    --footer-link: #361e0e;
+                }
+            }
+
+            @font-face {
+                font-family: "Nunito";
+                font-display: swap;
+                src: url(fonts/Nunito-VariableFont_wght.ttf);
+            }
+
+            @font-face {
+                font-family: "Geo";
+                font-display: swap;
+                src: url(fonts/Geo-Regular.ttf);
+            }
+
+            /* -------------------------------------------------------- */
+            /* SCROLLBAR STYLING */
+            /* -------------------------------------------------s------- */
+            /* Firefox */
+            * {
+                scrollbar-width: thin;
+                scrollbar-color: var(--borders) transparent;
+            }
+
+            /* Chrome, Edge, and Safari */
+            *::-webkit-scrollbar {
+                width: 5px;
+            }
+
+            *::-webkit-scrollbar-track {
+                background: transparent;
+            }
+
+            *::-webkit-scrollbar-thumb {
+                background-color: transparent;
+                border-radius: 10px;
+                border: 3px double var(--borders);
+            }
+
+            ::selection {
+                color: #fff;
+                background: var(--borders);
+            }
+
+            /* -------------------------------------------------------- */
+            /* BASICS */
+            /* -------------------------------------------------------- */
+
+            body {
+                font-family: var(--body-font);
+                background-color: var(--background);
+                background-image: linear-gradient(var(--background-deco) 1px, transparent 1px),
+                    linear-gradient(to right, var(--background-deco) 1px, var(--background) 1px);
+                background-size: 20px 20px;
+                background-attachment: fixed;
+                color: var(--font-color);
+                font-size: 1em;
+            }
+
+            * {
+                box-sizing: border-box;
+                margin: 0;
+
+                &:focus-visible {
+                    outline-color: var(--focus-color) !important;
+                    outline-offset: -1px !important;
+                    outline-style: dotted !important;
+                    outline-width: 2px !important;
+                    border-color: transparent;
+                }
+            }
+
+            html {
+                position: relative;
+            }
+
+            html,
+            body {
+                padding: 0;
+                margin: 0;
+            }
+
+            a {
+                color: var(--links);
+                text-decoration: underline;
+                transition: 0.25s;
+                line-height: 1rem;
+
+                &:hover {
+                    color: var(--links-hover);
+                    text-decoration: none;
+                }
+            }
+
+            /* only add external links to paragraphs, blockquotes, and lists */
+            main p a[href^="http"]:after,
+            main blockquote a[href^="http"]:after,
+            main li a[href^="http"]:after {
+                display: inline-block;
+                content: "↗";
+                margin-left: 1px;
+                font-size: 0.
+                background-size: 1rem 1rem;
+            }
+
+            /* -------------------------------------------------------- */
+            /* HEADER + NAVIGATION */
+            /* -------------------------------------------------------- */
+            header {
+                border-bottom: 3px dotted var(--borders);
+            }
+
+            #headerdeco {
+                display: flex;
+                align-items: flex-end;
+                justify-content: end;
+                background-image: var(--header-img);
+                height: var(--header-height);
+                background-repeat: no-repeat;
+                background-position: var(--header-align);
+                background-size: cover;
+                width: 100%;
+                border-radius: var(--border-radius);
+                border: 3px solid var(--borders);
+                box-shadow: 2px 2px 0px var(--borders);
+            }
+
+            #headerdeco p {
+                font-size: 3em;
+                font-family: var(--title-font);
+                color: var(--title-color);
+                padding: 5px 10px;
+                font-weight: bold;
+                text-shadow:
+                    4px 4px var(--accent),
+                    -1px -1px var(--accent),
+                    1px 1px var(--accent),
+                    -1px 1px var(--accent),
+                    1px -1px var(--accent);
+            }
+
+            #headerdeco p a {
+                color: inherit;
+                text-decoration: none;
+            }
+
+            #headerdeco p a:hover {
+                letter-spacing: 2px;
+            }
+
+            header summary {
+                display: none;
+            }
+
+            nav {
+                display: flex;
+                flex-wrap: wrap;
+                position: sticky;
+                top: 0px;
+                justify-content: space-between;
+                width: 100%;
+                align-content: center;
+                gap: 10px;
+                padding: var(--padding) 0;
+            }
+
+            nav a {
+                text-align: center;
+                color: var(--nav-text);
+                background-color: var(--nav-bg);
+                flex: 1 0 21%;
+                width: auto;
+                border-radius: var(--border-radius);
+                border: 3px solid var(--nav-borders);
+                padding: 5px 0;
+                text-decoration: none;
+                box-shadow: 2px 2px 0px var(--nav-borders);
+
+                &:hover {
+                    background-color: var(--nav-bg-hover);
+                    color: var(--nav-text-hover);
+                }
+            }
+
+            /* -------------------------------------------------------- */
+            /* MAIN CONTENT */
+            /* -------------------------------------------------------- */
+            .container {
+                max-width: var(--website-size);
+                margin: 10px auto;
+            }
+
+            main {
+                display: flex;
+                flex-wrap: wrap;
+                margin: auto;
+                gap: 10px;
+                padding: var(--padding) 0;
+            }
+
+            main p {
+                line-height: 1.4em;
+                padding-bottom: 5px;
+                padding: 5px 0;
+            }
+
+            main p:first-child {
+                padding-top: 0px;
+            }
+
+            main p:last-child {
+                padding-bottom: 0px;
+            }
+
+            main .box {
+                max-width: var(--website-size);
+                position: relative;
+                background-color: var(--body-bg);
+                border: 3px solid var(--borders);
+                outline: 1px dotted var(--borders);
+                outline-offset: -5px;
+                padding: var(--padding);
+                border-radius: var(--border-radius);
+                box-shadow: 2px 2px 0px var(--borders);
+            }
+
+            /* only for boxes within boxes */
+            main div .box {
+                margin-bottom: 10px;
+
+                &:last-child {
+                    margin-bottom: 0;
+                }
+            }
+
+            /* -------------------------------------------------------- */
+            /* STYLING */
+            /* -------------------------------------------------------- */
+            h1 {
+                font:
+                    1.8em var(--header-font),
+                    sans-serif;
+                border-bottom: 2px dotted var(--accent);
+                color: var(--header-color);
+            }
+
+            h2 {
+                font:
+                    1.6em var(--header-font),
+                    sans-serif;
+                border-bottom: 2px dotted var(--accent);
+                margin: 5px 0 5px 0;
+                color: var(--header-color);
+            }
+
+            h3 {
+                font:
+                    1.4em var(--header-font),
+                    sans-serif;
+                color: var(--header-color);
+            }
+
+            h4 {
+                font:
+                    1.3em var(--header-font),
+                    sans-serif;
+                color: var(--header-color);
+            }
+
+            h5 {
+                font:
+                    1.2em var(--header-font),
+                    sans-serif;
+                color: var(--header-color);
+            }
+
+            h6 {
+                font:
+                    1.1em var(--header-font),
+                    sans-serif;
+                color: var(--header-color);
+            }
+
+            hr {
+                border: none;
+                border-top: 2px dotted var(--accent);
+            }
+
+            bold,
+            strong,
+            b {
+                color: var(--bold);
+            }
+
+            em,
+            italics,
+            i {
+                color: var(--italics);
+            }
+
+            abbr {
+                text-decoration: underline;
+                text-decoration-style: dotted;
+                text-decoration-color: var(--accent) !important;
+                cursor: pointer;
+            }
+
+            underline,
+            u {
+                text-decoration: underline;
+                text-decoration-style: double;
+                text-decoration-thickness: 1px;
+                text-decoration-color: var(--accent);
+            }
+
+            s,
+            del {
+                text-decoration: line-through;
+                opacity: 0.8;
+            }
+
+            mark {
+                /* Text highlighted by using the <mark> element */
+                text-shadow: 1px 1px 4px var(--blockquote);
+                background-color: inherit;
+                color: inherit;
+            }
+
+            main .image,
+            main .full-width-image,
+            main .two-columns {
+                margin: 0.75em 0;
+            }
+
+            blockquote {
+                background: var(--blockquote);
+                padding: 10px;
+                margin: 1em 0.5em;
+                border-radius: 0 var(--border-radius) var(--border-radius) 0;
+                border-left: 3px solid var(--borders);
+            }
+
+            main summary {
+                background-color: var(--blockquote);
+                padding: 10px;
+                border-radius: var(--border-radius);
+                transition: 0.2s;
+            }
+
+            main summary:hover {
+                cursor: pointer;
+                background-color: var(--accent);
+                color: var(--font-on-accent);
+            }
+
+            main pre {
+                margin: 1em 0 1.5em;
+                overflow: hidden;
+            }
+
+            main code {
+                text-transform: none;
+                background-color: var(--blockquote);
+                padding: 4px;
+                border-radius: var(--border-radius);
+            }
+
+            main center {
+                margin: 1em 0;
+                padding: 0 1em;
+            }
+
+            /* Scrolling Areas */
+
+            .scrollable {
+                height: 200px;
+                background-color: var(--blockquote);
+                border-radius: var(--border-radius);
+                padding: var(--padding);
+                overflow: scroll;
+            }
+
+            .scrollable ul {
+                margin: 0;
+            }
+
+            /* Image Styling */
+
+            img {
+                max-width: 100%;
+            }
+
+            .image {
+                display: block;
+                width: auto;
+                height: auto;
+                max-width: 100%;
+            }
+
+            .full-width-image {
+                display: block;
+                width: 100% !important;
+                height: auto;
+            }
+
+            .images {
+                display: flex;
+                width: calc(100% + 5px + 5px);
+                margin-left: -5px;
+                margin-right: -5px;
+            }
+
+            .images img {
+                width: 100%;
+                height: auto;
+                padding: 5px;
+                margin: 0;
+                overflow: hidden;
+            }
+
+            .image-deco {
+                background-color: var(--blockquote);
+                border: 3px solid var(--borders);
+                outline: 1px dotted var(--borders);
+                outline-offset: -5px;
+                border-radius: var(--border-radius);
+            }
+
+            /* Form elements */
+            main input,
+            textarea,
+            select,
+            option {
+                color: var(--text);
+                background: var(--blockquote);
+                font: 1rem var(--body-font);
+                border: 1px solid var(--borders);
+                padding: 5px;
+            }
+
+            main button {
+                color: var(--nav-text);
+                background: var(--nav-bg);
+                font: 1rem var(--body-font);
+                border: 3px solid var(--borders);
+                border-radius: var(--border-radius);
+                padding: 5px 10px;
+                transition: 0.2s;
+                margin: 0 5px;
+            }
+
+            main button:hover {
+                background: var(--nav-bg-hover);
+            }
+
+            /* Lists */
+            main ul,
+            main ol {
+                padding-left: 20px;
+                margin: 5px 0 5px 10px;
+            }
+
+            main li {
+                margin: 7px 0 7px 0;
+                line-height: 1.5;
+                /*list-style-image: url(../img/deco/star_bullet.gif);*/
+            }
+
+            main li:last-child {
+                margin-bottom: 0;
+            }
+
+            main li:first-child {
+                margin-top: 0;
+            }
+
+            main li ul li {
+                /*list-style-image: url(../img/deco/pixel_bee.gif);*/
+            }
+
+            main li::marker {
+                color: var(--accent);
+            }
+
+            /* -------------------------------------------------------- */
+            /* GALLERY */
+            /* -------------------------------------------------------- */
+            /* Wrapper */
+            .image-gallery {
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: center;
+                align-content: center;
+                margin-left: 0;
+                margin-right: 0;
+                gap: 10px;
+            }
+
+            /* Items */
+            .image-gallery div {
+                width: calc(20% - 10px);
+                box-sizing: border-box;
+                border: 3px solid var(--borders);
+                outline: 1px dotted var(--borders);
+                outline-offset: -5px;
+                border-radius: var(--border-radius);
+                overflow: hidden;
+            }
+
+            /* Images */
+            .image-gallery div img {
+                aspect-ratio: 1/1;
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                transition: transform 0.25s ease-in-out;
+            }
+
+            .image-gallery div img:hover {
+                transform: scale(1.1);
+            }
+
+            /* -------------------------------------------------------- */
+            /* CONTENT SIZE HELPERS VIA KALECHIPS */
+            /* -------------------------------------------------------- */
+            .full {
+                flex: 1 1 calc(100% - 2rem); /* for some reason it fixes the weird gap issues */
+            }
+            .half {
+                flex: 1 1 calc(50% - 2rem);
+            }
+            .third {
+                flex: 1 1 calc(33.33% - 2rem);
+            }
+            .twothird {
+                flex: 1 1 calc(66.66% - 2rem);
+            }
+            .quarter {
+                flex: 1 1 calc(25% - 2rem);
+            }
+            .threequarter {
+                flex: 1 1 calc(75% - 2rem);
+            }
+
+            /* ONLY FOR ITEMS THAT AREN'T FITTING */
+            .fillheight {
+                height: 100%;
+            }
+
+            /* -------------------------------------------------------- */
+            /* RIGHT TO LEFT MARQUEE */
+            /* -------------------------------------------------------- */
+            .marquee {
+                overflow: hidden;
+                white-space: nowrap;
+            }
+
+            .marquee div {
+                padding-left: 100%;
+                width: max-content;
+                animation: marquee var(--marquee-duration) linear infinite;
+                line-height: 1em;
+            }
+
+            .marquee div:hover {
+                animation-play-state: paused;
+            }
+
+            .marquee p {
+                display: inline;
+            }
+
+            @keyframes marquee {
+                0% {
+                    transform: translate(0, 0);
+                }
+                100% {
+                    transform: translate(-100%, 0);
+                }
+            }
+
+            @media (prefers-reduced-motion: reduce) {
+                .marquee div {
+                    overflow: scroll;
+                    padding-left: 0;
+                    width: auto;
+                    animation: none;
+                }
+            }
+
+            /* -------------------------------------------------------- */
+            /* OTHER HELPER CLASSES */
+            /* -------------------------------------------------------- */
+            /* COLUMNS: */
+            .two-columns {
+                display: flex;
+            }
+
+            .two-columns > * {
+                flex: 1 1 0;
+                margin: 0;
+            }
+
+            .two-columns > *:first-child {
+                padding-right: 0.75em;
+            }
+
+            .two-columns > *:last-child {
+                padding-left: 0.75em;
+            }
+
+            .hide-desktop {
+                display: none;
+            }
+
+            /* center any item */
+            .center-item {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center; /* align horizontal */
+                align-items: center; /* align vertical */
+            }
+
+            /* Shadow CSS Deco */
+            .image-shadow {
+                filter: drop-shadow(3px 3px 0 var(--accent));
+            }
+
+            .float-img-right {
+                max-width: 40%;
+                float: right;
+                margin: 2px 0 2px 10px;
+            }
+
+            .float-img-left {
+                max-width: 40%;
+                float: left;
+                margin: 2px 10px 2px 0;
+            }
+
+            /* fix for floats! */
+            .clearfix::after {
+                content: "";
+                clear: both;
+                display: table;
+            }
+
+            /* -------------------------------------------------------- */
+            /* FOOTER */
+            /* -------------------------------------------------------- */
+            footer {
+                background-color: var(--footer-bg);
+                color: var(--footer-text);
+                text-align: center;
+                padding: var(--padding);
+                border-radius: var(--border-radius);
+                border: 3px solid var(--borders);
+                font-size: 0.8em;
+                box-shadow: 2px 2px 0px var(--borders);
+            }
+
+            footer a {
+                color: var(--footer-link);
+            }
+
+            /* -------------------------------------------------------- */
+            /* SCROLL TO TOP */
+            /* -------------------------------------------------------- */
+            #backscroll {
+                display: none; /* Hidden by default */
+                position: fixed; /* Fixed/sticky position */
+                bottom: 13px; /* Place the button at the bottom of the page */
+                right: 10px; /* Place the button 30px from the right */
+                z-index: 99; /* Make sure it does not overlap */
+                border: 3px solid var(--nav-borders); /* Remove borders */
+                background-color: var(--nav-bg); /* Set a background color */
+                color: var(--nav-text); /* Text color */
+                cursor: pointer; /* Add a mouse pointer on hover */
+                padding: 10px 15px; /* Some padding */
+                border-radius: var(--border-radius); /* Rounded corners */
+                font-size: 1.1rem; /* Increase font size */
+                font-family: "Nunito";
+                transition: 0.5s;
+            }
+
+            #backscroll:hover {
+                color: var(--nav-text-hover);
+                background-color: var(--nav-bg-hover); /* Add a dark-grey background on hover */
+            }
+
+            /* -------------------------------------------------------- */
+            /* ACCESSIBILITY, DO NOT REMOVE */
+            /* -------------------------------------------------------- */
+            #skip a {
+                position: absolute;
+                display: inline-block;
+                left: 0px;
+                top: -1000px;
+                overflow: hidden;
+                transition: top 0.5s ease;
+                background: var(--background);
+                color: var(--link);
+                z-index: 1000;
+                padding: 5px;
+            }
+
+            #skip a:focus {
+                top: 0;
+                transition: top 0.5s ease;
+            }
+
+            /* -------------------------------------------------------- */
+            /* CALENDAR */
+            /* -------------------------------------------------------- */
+            #widget-calendar table {
+                border: 1px solid var(--borders);
+                border-collapse: collapse;
+                font-size: 0.9em;
+                margin: 0 auto;
+            }
+
+            #widget-calendar td {
+                padding: 0 0.25rem;
+                border: 1px solid var(--borders);
+            }
+
+            #widget-calendar .month {
+                font-weight: bold;
+                color: var(--header-color);
+                text-align: center;
+                font-size: 1em;
+            }
+
+            #widget-calendar .days {
+                font-weight: bold;
+            }
+
+            #widget-calendar .today {
+                font-weight: bold;
+                color: var(--accent);
+                text-decoration: underline;
+                text-decoration-style: dotted;
+            }
+
+            #widget-calendar .blank {
+                background-color: var(--blockquote);
+            }
+
+            /* -------------------------------------------------------- */
+            /* MOBILE RESPONSIVENESS */
+            /* -------------------------------------------------------- */
+            @media screen and (max-width: 800px) {
+                .container {
+                    margin: 10px;
+                }
+
+                main .box {
+                    max-width: 100%;
+                }
+
+                main {
+                    display: block;
+                }
+
+                header summary {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    width: 100%;
+                    height: 60px;
+                    background-color: var(--nav-bg);
+                    border-radius: var(--border-radius);
+                    border: 3px solid var(--nav-borders);
+                    box-shadow: 2px 2px 0 var(--nav-borders);
+                    color: var(--nav-text);
+                    margin: 10px 0;
+                    font-weight: bold;
+                }
+
+                header summary::after {
+                    content: " ▾";
+                    margin-left: 10px;
+                }
+                header details[open] summary:after {
+                    content: " ▴";
+                }
+
+                nav {
+                    gap: 5px;
+                    flex-wrap: wrap;
+                    justify-content: center;
+                    padding-top: 0;
+                }
+
+                nav a {
+                    display: block;
+                    flex: 1 0 49%;
+                    margin: 0;
+                }
+
+                /* Items */
+                .image-gallery div {
+                    width: calc(33% - 10px);
+                }
+
+                .hide-desktop {
+                    display: block !important;
+                }
+
+                .hide-mobile {
+                    display: none;
+                }
+
+                .full,
+                .half,
+                .third,
+                .twothird,
+                .quarter,
+                .threequarter {
+                    margin: 10px 0 10px 0;
+                }
+
+                .full:last-child,
+                .half:last-child,
+                .third:last-child,
+                .twothird:last-child,
+                .quarter:last-child,
+                .threequarter:last-child {
+                    margin-bottom: 0px;
+                }
+
+                .full:first-child,
+                .half:first-child,
+                .third:first-child,
+                .twothird:first-child,
+                .quarter:first-child,
+                .threequarter:last-child {
+                    margin-top: 0px;
+                }
+
+                .float-img-right {
+                    float: none;
+                    display: block;
+                    margin-left: auto;
+                    margin-right: auto;
+                    max-width: 75%;
+                }
+
+                .float-img-left {
+                    float: none;
+                    display: block;
+                    margin-left: auto;
+                    margin-right: auto;
+                    max-width: 75%;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div id="skip"><a href="#content">Skip to content</a></div>
+        <button onclick="topFunction()" id="backscroll" title="Go to top">Top</button>
+
+        <div class="container">
+            <header>
+                <div id="headerdeco">
+                    <p><a href="/index.html">🔶 REX INCOGNITO</a></p>
+                </div>
+                <details id="navigation" open>
+                    <summary>Navigation</summary>
+                    <nav>
+                        <a href="">link</a>
+                        <a href="">link</a>
+                        <a href="">link</a>
+                        <a href="">link</a>
+                        <a href="">link</a>
+                        <a href="">link</a>
+                        <a href="">link</a>
+                    </nav>
+                </details>
+            </header>
+            <main id="content">
+                <div class="third box">
+                    <div class="center-item">
+                        <img
+                            src="https://file.garden/Zq0xOX6Iv3i3b1te/Neocities/Other/ZLedit11.png"
+                            class="image-deco"
+                            alt=""
+                            loading="lazy" />
+                    </div>
+                    <blockquote>
+                        This is a blockquote. If you'd like to grab the template, pick it up
+                        <a href="https://github.com/sylviegirly/html-templates/tree/main/boxy">from github</a
+                        >!<br /><br />It will have a simpler layout than this and won't have objects like the calendar,
+                        this is just an example of a 'finished' layout and how items like the floats work!
+                    </blockquote>
+                </div>
+
+                <div class="twothird box">
+                    <h1>Header</h1>
+                    <img
+                        src="https://static.wikia.nocookie.net/gensin-impact/images/6/63/Starlight_Reverie_Avatar_Zhongli.png"
+                        class="float-img-right image-shadow"
+                        alt=""
+                        loading="lazy" />
+                    <p>
+                        I will now show you how to use the most common HTML text elements:
+                        <b>This is bold text.</b>
+                        <strong>This is also bold text.</strong>
+                        <i>This is italic text.</i>
+                        <em>This is also italic text.</em>
+                        <s>This is strikethrough text.</s>
+                        <u>This is underlined text.</u>
+                        <a href="https://petrapixel.neocities.org/">This is a link.</a>
+                        <a href="https://petrapixel.neocities.org/" target="_blank"
+                            >This is a link that will open in a new tab.</a
+                        >
+                        <code>This is code (displayed in a monospace font).</code>
+                        <abbr title="Example.">This is an abbreviation (Try hovering over it).</abbr>
+                        <mark>This is highlighted text.</mark>
+                        This is a line break (The br stands for break.): <br />It's different from a paragraph because
+                        it does not add space inbetween the lines of text.
+                    </p>
+                    <p>
+                        This is a paragraph. As you can see, there's a bit of space between it and the previous
+                        paragraph.
+                    </p>
+                    <hr />
+                    <p>
+                        And this is a divider! You can also add a cool drop shadow to images using
+                        <code>.image-shadow</code>
+                    </p>
+                    <div class="center-item">
+                        <img
+                            src="https://static.wikia.nocookie.net/gensin-impact/images/e/ef/Ancient_Treasures_Unearthed_Zhongli_Emoji_04.png"
+                            loading="lazy"
+                            alt=""
+                            class="hide-mobile" />
+                    </div>
+                </div>
+
+                <div class="half box clearfix">
+                    <h2>About Me</h2>
+                    <img
+                        src="https://static.wikia.nocookie.net/gensin-impact/images/f/f3/Icon_Emoji_Holidays_2021_5.png"
+                        class="image-deco float-img-left" />
+                    <p>This is a simple third of a box and you can keep writing here and keep going on too.</p>
+                    <p>You can add whatever images you wanna do too!!</p>
+                    <p>
+                        Just make sure you go beyond the image if you wanna add more stuff like identity buttons and
+                        what not. It's funky as hell tho if your text doesn't go beyond the float.
+                    </p>
+                    <hr />
+                    <div class="center-item" style="padding: 10px">
+                        <img src="https://i.imgur.com/tyEuRXe.png" alt="Asexual (Asexual flag)" />
+                        <img src="https://i.imgur.com/GZRjY5G.png" alt="Aegosexual (Aegosexual flag)" />
+                        <img src="https://i.imgur.com/iU4i15D.png" alt="Straight Ally (Straight Ally flag)" />
+                        <img src="https://i.imgur.com/fLdYOuE.png" alt="Demigirl (Demigirl flag)" />
+                    </div>
+                    <hr />
+                    <p>Eerily empty here but that's ok ... have a lizard 🦎</p>
+                </div>
+
+                <div class="quarter box">
+                    <h3>Credits</h3>
+                    <ul>
+                        <li><a href="https://kalechips.net">Kalechips</a> for the flexbox sections</li>
+                        <li>
+                            <a href="https://petrapixel.neocities.org/">Petrapixel</a> for various snippets + the HTML
+                            tag examples
+                        </li>
+                        <li>
+                            <a href="https://bechnokid.neocities.org/resources/code-snippets/">Bechno Kid</a> for the
+                            calendar snippet
+                        </li>
+                        <li>
+                            <a href="https://salarua.neocities.org/misc/accessible_marquee/">Salarua</a> for the
+                            accessibility marquee
+                        </li>
+                        <li>
+                            <a href="https://www.magicpattern.design/tools/css-backgrounds">Magic Pattern</a> for the
+                            background CSS
+                        </li>
+                        <li><a href="https://idbuttons.neocities.org/database/">Pixel labels</a> are by fluffmoth</li>
+                    </ul>
+                </div>
+
+                <div class="quarter">
+                    <div class="box hide-mobile">
+                        <div id="widget-calendar"></div>
+                    </div>
+                    <div class="box center-item hide-mobile"><p>🧡🔶🧡</p></div>
+                    <div class="box center-item hide-mobile">
+                        <img
+                            src="https://static.wikia.nocookie.net/gensin-impact/images/5/52/FCFH_Zhongli.png"
+                            alt=""
+                            loading="lazy" />
+                    </div>
+                </div>
+
+                <div class="full box">
+                    <img
+                        src="../img/misc/zhongli_chibi.png"
+                        class="hide-mobile"
+                        loading="lazy"
+                        style="position: absolute; left: -40px; top: -25px; z-index: 2; pointer-events: none" />
+                    <div class="marquee">
+                        <div>
+                            <img src="https://placehold.co/88x31" alt="" />
+                            <img src="https://placehold.co/88x31" alt="" />
+                            <img src="https://placehold.co/88x31" alt="" />
+                            <img src="https://placehold.co/88x31" alt="" />
+                            <img src="https://placehold.co/88x31" alt="" />
+                            <img src="https://placehold.co/88x31" alt="" />
+                            <img src="https://placehold.co/88x31" alt="" />
+                            <img src="https://placehold.co/88x31" alt="" />
+                            <img src="https://placehold.co/88x31" alt="" />
+                            <img src="https://placehold.co/88x31" alt="" />
+                            <img src="https://placehold.co/88x31" alt="" />
+                            <img src="https://placehold.co/88x31" alt="" />
+                        </div>
+                    </div>
+                </div>
+
+                <div class="twothird box">
+                    <h3>Updates</h3>
+                    <div class="scrollable">
+                        <ul>
+                            <li><b>Date: </b>wow cool update goes here</li>
+                            <li><b>Date: </b>wow cool update goes here</li>
+                            <li><b>Date: </b>wow cool update goes here</li>
+                            <li><b>Date: </b>wow cool update goes here</li>
+                            <li><b>Date: </b>wow cool update goes here</li>
+                            <li><b>Date: </b>wow cool update goes here</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="third box">
+                    <!-- how to do a 'floating' item, does need the box to be set to position: relative -->
+                    <img
+                        src="../img/oc/others/editedAlt.png"
+                        class="hide-mobile"
+                        loading="lazy"
+                        style="
+                            position: absolute;
+                            right: -100px;
+                            top: -100px;
+                            z-index: 2;
+                            width: 200px;
+                            pointer-events: none;
+                        " />
+                    <p>This is a third box</p>
+                    <p><input type="text" value="Input" /></p>
+                    <p>
+                        <select>
+                            <option selected>Selection</option>
+                            <option>Option 1</option>
+                            <option>Option 2</option>
+                            <option>Option 3</option>
+                        </select>
+                    </p>
+                    <p><textarea>Textarea</textarea></p>
+                    <div class="center-item">
+                        <button type="button">Button</button>
+                        <button type="button">Button</button>
+                    </div>
+                </div>
+
+                <div class="full box hide-desktop">
+                    <div class="center-item">
+                        <img src="https://placehold.co/88x31" alt="" />
+                    </div>
+                    <p class="center">Hi! I'm a box that only appears on mobile! I will not be here on desktop! 😳</p>
+                </div>
+
+                <div class="full box">
+                    <h2>Gallery</h2>
+                    <p>
+                        Wow look it's a little mini gallery you can use to show whatever images you wanna show!! ... I
+                        know this is peepaw themed but honestly placeholder dogs just work best to show size variations.
+                    </p>
+                    <p>These are multiple images in a row:</p>
+                    <div class="image-gallery">
+                        <div><img alt="" src="https://placedog.net/400/280" loading="lazy" /></div>
+                        <div><img alt="" src="https://placedog.net/200/280" loading="lazy" /></div>
+                        <div><img alt="" src="https://placedog.net/300/280" loading="lazy" /></div>
+                        <div><img alt="" src="https://placedog.net/300/480" loading="lazy" /></div>
+                        <div><img alt="" src="https://placedog.net/300/580" loading="lazy" /></div>
+                    </div>
+                </div>
+            </main>
+            <footer>lovingly made by aid. <a href="/index.html">go back to the main site?</a></footer>
+        </div>
+
+        <script>
+            let mql = window.matchMedia("(max-width: 800px)");
+            if (mql.matches) {
+                document.getElementById("navigation").open = false;
+            }
+        </script>
+
+        <script src="../js/scroll-to-top.js"></script>
+    </body>
+</html>
