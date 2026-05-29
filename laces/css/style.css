@@ -35,7 +35,7 @@
     --quote-color: #ffffff;
 
     --background: #ffffff;
-    --background-image: url(../img/decos/dot_pattern_01.png);
+    --background-image: url(../img/dot_pattern_01.png);
 
     --links: #811313;
     --links-hover: #000000;
@@ -71,7 +71,7 @@
         --image-deco-border: #35081c;
 
         --background: #000000;
-        --background-image: url(../img/decos/dot_pattern_01_dark.png);
+        --background-image: url(../img/dot_pattern_01_dark.png);
 
         --links: #f29999;
         --links-hover: #ffffff;
